@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Onbroda",
+    "desc": "Onbroda, is a React.js application that showcases onboarding screen designs from various popular apps. ",
+    "image": "assets/images/projects/onbroda.png",
+    "category": "ReactJS",
+    "links": {
+      "view": "https://onbroda.storyyell.in/"
+    }
+  },
+  {
+    "name": "Sai Nandan Group",
+    "desc": "Sainandan Group is a premier real estate brand in Pune, offering an innovative WordPress application.",
+    "image": "assets/images/projects/sainandangroup.png",
+    "category": "WordPress",
+    "links": {
+      "view": "https://sainandangroup.in/"
+    }
+  },
+  {
+    "name": "The Minimal Thinking",
+    "desc": "Elevate your brand with our digital marketing website, designed to drive engagement and deliver measurable results.",
+    "image": "assets/images/projects/minimalthiking.png",
+    "category": "WordPress",
+    "links": {
+      "view": "https://theminimalthinking.com/"
+    }
+  },
+  {
+    "name": "Siddhivinak Tours & Travel",
+    "desc": "Explore the world with our professional tours and travel services, designed to create unforgettable experiences tailored to your journey.",
+    "image": "assets/images/projects/tours.png",
+    "category": "WordPress",
+    "links": {
+      "view": "https://sidhivinayaktours.com/"
+    }
+  },
+  {
+    "name": "Live Happy",
+    "desc": "Explore the world with our professional tours and travel services, designed to create unforgettable experiences tailored to your journey.",
+    "image": "assets/images/projects/live.png",
+    "category": "WordPress",
+    "links": {
+      "view": "https://livehappy.group/"
+    }
+  }
+]
