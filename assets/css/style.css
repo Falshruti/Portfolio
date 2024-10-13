@@ -544,7 +544,7 @@ header .navbar ul li a:hover {
   height: 100%;
   width: 100%;
   position: absolute;
-  top: 85%;
+  top: 82%;
   left: 0;
   background: rgba(255, 255, 255, 0.9);
   display: flex;
@@ -555,7 +555,7 @@ header .navbar ul li a:hover {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 4.5rem;
+  height: 5.5rem;
   width: 100%;
   padding-left: 1rem;
   background: #ffae00;
@@ -575,21 +575,22 @@ header .navbar ul li a:hover {
   justify-content: center;
 }
 .work .desc p {
-  font-size: 1.5rem;
+  font-size: 14px;
+  height: 105px;
 }
 .work .desc .btns {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-top: 2rem;
+  margin-top: 0.5rem;
 }
 .work .desc .btns .btn {
   line-height: 0;
   display: inline;
-  padding: 1.5rem 2.5rem;
+  padding: 0.8rem 2rem;
   border-radius: 0.5rem;
-  font-size: 1.5rem;
-  color: #fff;
+  font-size: 1.4rem;
+  color:white;
   background: rgb(12, 12, 12);
   margin-right: 2rem;
 }
