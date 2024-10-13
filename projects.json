@@ -9,21 +9,30 @@
     }
   },
   {
+    "name": "The Minimal Thinking",
+    "desc": "Our WordPress-based digital marketing website elevates brands through custom-designed themes, tailored CSS, and JavaScript.",
+    "image": "assets/images/projects/minimalthiking.png",
+    "category": "WordPress",
+    "links": {
+      "view": "https://theminimalthinking.com/"
+    }
+  },
+  {
+    "name": "Symbiosis University Hospital and Research Centre (SUHRC) ",
+    "desc": "The SUHRC project is a hospital management system developed using HTML, CSS, JavaScript, jQuery, PHP, and Bootstrap, Smtp email notification with a MySQL database.",
+    "image": "assets/images/projects/suhrc.png",
+    "category": "PHP",
+    "links": {
+      "view": "https://symbiosisuniversityhospital.com/"
+    }
+  },
+  {
     "name": "Sai Nandan Group",
     "desc": "Sainandan Group is a premier real estate brand in Pune, offering an innovative WordPress application.",
     "image": "assets/images/projects/sainandangroup.png",
     "category": "WordPress",
     "links": {
       "view": "https://sainandangroup.in/"
-    }
-  },
-  {
-    "name": "The Minimal Thinking",
-    "desc": "Elevate your brand with our digital marketing website, designed to drive engagement and deliver measurable results.",
-    "image": "assets/images/projects/minimalthiking.png",
-    "category": "WordPress",
-    "links": {
-      "view": "https://theminimalthinking.com/"
     }
   },
   {
