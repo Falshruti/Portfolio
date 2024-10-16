@@ -3,7 +3,7 @@
     "name": "Onbroda",
     "desc": "Onbroda, is a React.js application that showcases onboarding screen designs from various popular apps. ",
     "image": "assets/images/projects/onbroda.png",
-    "category": "ReactJS",
+    "category": "reactjs",
     "links": {
       "view": "https://onbroda.storyyell.in/"
     }
@@ -12,7 +12,7 @@
     "name": "The Minimal Thinking",
     "desc": "Our WordPress-based digital marketing website elevates brands through custom-designed themes, tailored CSS, and JavaScript.",
     "image": "assets/images/projects/minimalthiking.png",
-    "category": "WordPress",
+    "category": "wordpress",
     "links": {
       "view": "https://theminimalthinking.com/"
     }
@@ -21,7 +21,7 @@
     "name": "Symbiosis University Hospital and Research Centre (SUHRC) ",
     "desc": "The SUHRC project is a hospital management system developed using HTML, CSS, JavaScript, jQuery, PHP, and Bootstrap, Smtp email notification with a MySQL database.",
     "image": "assets/images/projects/suhrc.png",
-    "category": "PHP",
+    "category": "php",
     "links": {
       "view": "https://symbiosisuniversityhospital.com/"
     }
@@ -30,7 +30,7 @@
     "name": "Sai Nandan Group",
     "desc": "Sainandan Group is a premier real estate brand in Pune, offering an innovative WordPress application.",
     "image": "assets/images/projects/sainandangroup.png",
-    "category": "WordPress",
+    "category": "wordpress",
     "links": {
       "view": "https://sainandangroup.in/"
     }
@@ -39,7 +39,7 @@
     "name": "Siddhivinak Tours & Travel",
     "desc": "Explore the world with our professional tours and travel services, designed to create unforgettable experiences tailored to your journey.",
     "image": "assets/images/projects/tours.png",
-    "category": "WordPress",
+    "category": "wordpress",
     "links": {
       "view": "https://sidhivinayaktours.com/"
     }
@@ -48,7 +48,7 @@
     "name": "Live Happy",
     "desc": "Explore the world with our professional tours and travel services, designed to create unforgettable experiences tailored to your journey.",
     "image": "assets/images/projects/live.png",
-    "category": "WordPress",
+    "category": "wordpress",
     "links": {
       "view": "https://livehappy.group/"
     }

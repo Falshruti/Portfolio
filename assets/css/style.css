@@ -1042,6 +1042,10 @@ form .button-area {
   section {
     padding: 2rem;
   }
+  .work .button-group{
+    width: 100%;
+  }
+
 }
 /* common media queries ends*/
 
@@ -1062,3 +1066,36 @@ form .button-area {
   top: calc(100% - 12rem);
 }
 /* scroll top ends */
+
+/* projects html file */
+#project-work{
+  padding-top: 70px;
+}
+.work .button-group{
+  display: flex;
+  flex-wrap: wrap;
+  gap:1rem;
+  margin: 2rem auto;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.work .button-group .btn{
+  outline: none;
+  padding: 1rem 2rem;
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.work .button-group .btn:hover{
+  background-color: #fff;
+  color: #000;
+}
+.work .button-group .btn.is-checked{
+  background-color: #fff;
+  color: #000;
+}
+
