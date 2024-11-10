@@ -72,6 +72,15 @@
     }
   },
   {
+    "name": "InCred Asset Management",
+    "desc": "This Project based on the Wordpress Application. We have used Elementor, Contact Form with Leadsquard Dashboard, Responsive Menu plugins, etc,.",
+    "image": "assets/images/projects/incredam.png",
+    "category": "wordpress",
+    "links": {
+      "view": "https://www.incredassetmanagement.com/"
+    }
+  },
+  {
     "name": "URBANBED",
     "desc": "In these projects, the Shopify application is used.",
     "image": "assets/images/projects/urbanBed.png",
