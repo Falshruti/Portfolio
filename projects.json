@@ -8,6 +8,16 @@
       "view": "https://onbroda.storyyell.in/"
     }
   },
+  ,
+  {
+    "name": "Learning Hub",
+    "desc": "Learning Hub, is a React.js application that showcases different courses available related to finance.",
+    "image": "assets/images/projects/learninghub.png",
+    "category": "reactjs",
+    "links": {
+      "view": "https://learninghub.finlabsindia.org/"
+    }
+  },
   {
     "name": "The Minimal Thinking",
     "desc": "Our WordPress-based digital marketing website elevates brands through custom-designed themes, tailored CSS, and JavaScript.",
