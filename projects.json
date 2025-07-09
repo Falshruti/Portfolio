@@ -36,6 +36,15 @@
     }
   },
   {
+    "name": "JoshiJampla Engineering Pvt Ltd  ",
+    "desc": "It's a Wordpress Application, used third party API for the Lead capturing and cutomization plugin is used. ",
+    "image": "assets/images/projects/joshi.png",
+    "category": "wordpress",
+    "links": {
+      "view": "https://joshijampala.com/"
+    }
+  },
+  {
     "name": "Live Happy",
     "desc": "It's a Wordpress Application",
     "image": "assets/images/projects/live.png",
