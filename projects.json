@@ -72,6 +72,15 @@
     }
   },
   {
+    "name": "Veko Care",
+    "desc": "In these projects, the Wordpress E-commerce application.",
+    "image": "assets/images/projects/veko.png",
+    "category": "wordpress",
+    "links": {
+      "view": "https://vekocare.com/"
+    }
+  },
+  {
     "name": "URBANBED",
     "desc": "In these projects, the Shopify application is used.",
     "image": "assets/images/projects/urbanBed.png",
