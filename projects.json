@@ -9,15 +9,6 @@
     }
   },
   {
-    "name": "Learning Hub",
-    "desc": "Learning Hub, is a React.js application that showcases different courses available related to finance.",
-    "image": "assets/images/projects/learninghub.png",
-    "category": "reactjs",
-    "links": {
-      "view": "https://learninghub.finlabsindia.org/"
-    }
-  },
-  {
     "name": "The Minimal Thinking",
     "desc": "Our WordPress-based digital marketing website elevates brands through custom-designed themes, tailored CSS, and JavaScript.",
     "image": "assets/images/projects/minimalthiking.png",
@@ -36,21 +27,12 @@
     }
   },
   {
-    "name": "Sai Nandan Group",
-    "desc": "Sainandan Group is a premier real estate brand in Pune, offering an innovative WordPress application.",
-    "image": "assets/images/projects/sainandangroup.png",
-    "category": "wordpress",
+    "name": "PASHU / ICTRD",
+    "desc": "In these projects, the Codeigniator application is used. These projects are designated for the Solapur University; it's a student learning program like Udemy and Corsera type platforms.",
+    "image": "assets/images/projects/pashu.png",
+    "category": "codeigniator",
     "links": {
-      "view": "https://sainandangroup.in/"
-    }
-  },
-  {
-    "name": "Siddhivinak Tours & Travel",
-    "desc": "Explore the world with our professional tours and travel services, designed in wordpress. Main focus on the project is lead generation so contact form-7 is used.",
-    "image": "assets/images/projects/tours.png",
-    "category": "wordpress",
-    "links": {
-      "view": "https://sidhivinayaktours.com/"
+      "view": "https://pahsu.ictrd.in/"
     }
   },
   {
@@ -69,15 +51,6 @@
     "category": "laravel",
     "links": {
       "view": "https://www.vascon.com/"
-    }
-  },
-  {
-    "name": "PASHU / ICTRD",
-    "desc": "In these projects, the Codeigniator application is used. These projects are designated for the Solapur University; it's a student learning program like Udemy and Corsera type platforms.",
-    "image": "assets/images/projects/pashu.png",
-    "category": "codeigniator",
-    "links": {
-      "view": "https://pahsu.ictrd.in/"
     }
   },
   {
