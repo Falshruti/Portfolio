@@ -3,7 +3,7 @@
 // Fetch Projects
 async function getProjects() {
     try {
-        const response = await fetch("./projects.json");
+        const response = await fetch("https://falshruti.github.io/Portfolio/projects.json");
 
         if (!response.ok) {
             throw new Error("JSON not found");
