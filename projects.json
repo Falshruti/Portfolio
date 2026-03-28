@@ -1,7 +1,52 @@
 [
   {
+    "name": "Finexa – Fintech Web Platform",
+    "desc": "Multi-module fintech SPA built with React.js and Node.js. Features secure OAuth 2.0 & JWT authentication, role-based CRM dashboards with real-time reporting, RESTful API integration, AWS S3 storage, and CI/CD pipelines. Query optimisation reduced page load times by ~40%.",
+    "image": "assets/images/projects/finexa.png",
+    "category": "reactjs",
+    "links": {
+      "view": "#"
+    }
+  },
+  {
+    "name": "Custom CRM & Lead Management System",
+    "desc": "Role-based CRM built from scratch using React.js and Laravel. Features automated lead status workflows, real-time reporting, full CRUD modules, and REST API integration — reducing manual sales follow-up and improving pipeline visibility for operations teams.",
+    "image": "assets/images/projects/crm.png",
+    "category": "reactjs",
+    "links": {
+      "view": "#"
+    }
+  },
+  {
+    "name": "eCommerce Storefront & Admin Portal",
+    "desc": "Full-featured eCommerce platform built with React.js, Node.js, Laravel, and MySQL. Includes product catalogue management, cart, checkout, order tracking, payment gateway integration, and AWS S3 for media storage.",
+    "image": "assets/images/projects/ecommerce.png",
+    "category": "reactjs",
+    "links": {
+      "view": "#"
+    }
+  },
+  {
+    "name": "E-Learning Platform",
+    "desc": "Scalable e-learning application built with PHP, React.js, and REST APIs. Features course management, quizzes, and interactive student/instructor dashboards with end-to-end RESTful API integration.",
+    "image": "assets/images/projects/elearning.png",
+    "category": "reactjs",
+    "links": {
+      "view": "#"
+    }
+  },
+  {
+    "name": "College Management Portals",
+    "desc": "Multi-role college management portals (attendance, fee, academics) built using CodeIgniter, Laravel, and PHP. Features RBAC, payment gateway integration, and reusable component architecture across multiple university clients.",
+    "image": "assets/images/projects/college.png",
+    "category": "laravel",
+    "links": {
+      "view": "#"
+    }
+  },
+  {
     "name": "Onbroda",
-    "desc": "Onbroda, is a React.js application that showcases onboarding screen designs from various popular apps. ",
+    "desc": "A React.js SPA that showcases onboarding screen designs from various popular apps — built to demonstrate UI/UX patterns and responsive component design.",
     "image": "assets/images/projects/onbroda.png",
     "category": "reactjs",
     "links": {
@@ -9,17 +54,17 @@
     }
   },
   {
-    "name": "The Minimal Thinking",
-    "desc": "Our WordPress-based digital marketing website elevates brands through custom-designed themes, tailored CSS, and JavaScript.",
-    "image": "assets/images/projects/minimalthiking.png",
-    "category": "wordpress",
+    "name": "PASHU / ICTRD",
+    "desc": "An e-learning platform for Solapur University built with CodeIgniter — similar to Udemy/Coursera. Features student enrollment, course management, and a learning progress tracker for the Indian Council for Technical Research & Development.",
+    "image": "assets/images/projects/pashu.png",
+    "category": "codeigniter",
     "links": {
-      "view": "https://theminimalthinking.com/"
+      "view": "https://pahsu.ictrd.in/"
     }
   },
   {
-    "name": "Symbiosis University Hospital and Research Centre (SUHRC) ",
-    "desc": "The SUHRC project is a hospital management system developed using HTML, CSS, JavaScript, jQuery, PHP, and Bootstrap, Smtp email notification with a MySQL database.",
+    "name": "Symbiosis University Hospital (SUHRC)",
+    "desc": "Hospital management system built with HTML, CSS, JavaScript, jQuery, PHP, Bootstrap, and MySQL. Features OPD scheduling, doctor management, SMTP email notifications, and patient data management.",
     "image": "assets/images/projects/suhrc.png",
     "category": "php",
     "links": {
@@ -27,35 +72,8 @@
     }
   },
   {
-    "name": "PASHU / ICTRD",
-    "desc": "In these projects, the Codeigniator application is used. These projects are designated for the Solapur University; it's a student learning program like Udemy and Corsera type platforms.",
-    "image": "assets/images/projects/pashu.png",
-    "category": "codeigniator",
-    "links": {
-      "view": "https://pahsu.ictrd.in/"
-    }
-  },
-  {
-    "name": "JoshiJampla Engineering Pvt Ltd",
-    "desc": "It's a Wordpress Application, used third party API for the Lead capturing and cutomization plugin is used.",
-    "image": "assets/images/projects/joshi.png",
-    "category": "wordpress",
-    "links": {
-      "view": "https://joshijampala.com/"
-    }
-  },
-  {
-    "name": "Live Happy",
-    "desc": "It's a Wordpress Application",
-    "image": "assets/images/projects/live.png",
-    "category": "wordpress",
-    "links": {
-      "view": "https://livehappy.group/"
-    }
-  },
-  {
     "name": "Vascon",
-    "desc": "Vascon is a laravel application project. In this project all data come from the backend so in this project admin dashboard also designed and Mysql database.",
+    "desc": "Laravel-based web application with a fully custom admin dashboard. All content is dynamically managed via backend APIs with a MySQL database — enabling non-technical admins to manage the site independently.",
     "image": "assets/images/projects/vascon.png",
     "category": "laravel",
     "links": {
@@ -63,8 +81,17 @@
     }
   },
   {
+    "name": "JoshiJampla Engineering Pvt Ltd",
+    "desc": "WordPress website for an engineering firm with third-party lead capture API integration, custom plugin development, and a tailored contact workflow for B2B enquiry management.",
+    "image": "assets/images/projects/joshi.png",
+    "category": "wordpress",
+    "links": {
+      "view": "https://joshijampala.com/"
+    }
+  },
+  {
     "name": "InCred Asset Management",
-    "desc": "This Project based on the Wordpress Application. We have used Elementor, Contact Form with Leadsquard Dashboard, Responsive Menu plugins, etc,.",
+    "desc": "WordPress website built with Elementor, Contact Form with LeadSquared CRM integration, and responsive menu plugins — tailored for a financial asset management brand.",
     "image": "assets/images/projects/incredam.png",
     "category": "wordpress",
     "links": {
@@ -72,8 +99,17 @@
     }
   },
   {
+    "name": "The Minimal Thinking",
+    "desc": "Digital marketing agency website built on WordPress with custom-designed themes, tailored CSS animations, and JavaScript enhancements for a modern, minimal brand identity.",
+    "image": "assets/images/projects/minimalthiking.png",
+    "category": "wordpress",
+    "links": {
+      "view": "https://theminimalthinking.com/"
+    }
+  },
+  {
     "name": "Veko Care",
-    "desc": "In these projects, the Wordpress E-commerce application.",
+    "desc": "WordPress WooCommerce e-commerce store for a healthcare/wellness brand with custom product pages, cart flow, and responsive design.",
     "image": "assets/images/projects/veko.png",
     "category": "wordpress",
     "links": {
@@ -81,8 +117,17 @@
     }
   },
   {
+    "name": "Live Happy",
+    "desc": "WordPress website for a wellbeing and gym installation company — featuring service showcases, enquiry forms, and a clean responsive layout focused on user experience.",
+    "image": "assets/images/projects/live.png",
+    "category": "wordpress",
+    "links": {
+      "view": "https://livehappy.group/"
+    }
+  },
+  {
     "name": "URBANBED",
-    "desc": "In these projects, the Shopify application is used.",
+    "desc": "Shopify e-commerce storefront for a furniture/home decor brand. Customised theme, product collections, and optimised checkout experience.",
     "image": "assets/images/projects/urbanBed.png",
     "category": "shopify",
     "links": {
