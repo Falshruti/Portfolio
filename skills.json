@@ -66,5 +66,21 @@
     {
         "name": "GitHub",
         "icon": "https://img.icons8.com/glyph-neue/48/ffffff/github.png"
-    }
+    },
+    {
+        "name": "Firebase",
+        "icon": "https://img.icons8.com/color/48/000000/firebase.png"
+    },
+    {
+        "name": "TailwindCSS",
+        "icon": "assets/images/skills/TailwindCSS.png"
+    },
+     {
+        "name": "WordPress",
+        "icon": "https://img.icons8.com/color/48/000000/wordpress.png"
+    },
+    {
+        "name": "Shopify",
+        "icon": "https://img.icons8.com/color/48/000000/shopify.png"
+    }    
 ]
