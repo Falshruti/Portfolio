@@ -1,21 +1,23 @@
 $(document).ready(function () {
 
+    // MENU TOGGLE
     $('#menu').click(function () {
         $(this).toggleClass('fa-times');
         $('.navbar').toggleClass('nav-toggle');
     });
 
+    // SCROLL
     $(window).on('scroll load', function () {
         $('#menu').removeClass('fa-times');
         $('.navbar').removeClass('nav-toggle');
 
         if (window.scrollY > 60) {
-            document.querySelector('#scroll-top').classList.add('active');
+            document.querySelector('#scroll-top')?.classList.add('active');
         } else {
-            document.querySelector('#scroll-top').classList.remove('active');
+            document.querySelector('#scroll-top')?.classList.remove('active');
         }
 
-        // scroll spy
+        // SCROLL SPY
         $('section').each(function () {
             let height = $(this).height();
             let offset = $(this).offset().top - 200;
@@ -29,103 +31,119 @@ $(document).ready(function () {
         });
     });
 
-    // smooth scrolling
+    // SMOOTH SCROLL
     $('a[href*="#"]').on('click', function (e) {
         e.preventDefault();
         $('html, body').animate({
             scrollTop: $($(this).attr('href')).offset().top,
-        }, 500, 'linear')
+        }, 500);
     });
-
-    // <!-- emailjs to mail contact form data -->
-    $("#contact-form").submit(function (event) {
-        emailjs.init("7YjPWlseDUJJqlsLl");
-
-        emailjs.sendForm('service_9drnhmd', 'template_ibjl25c', '#contact-form')
-            .then(function (response) {
-                console.log('SUCCESS!', response.status, response.text);
-                document.getElementById("contact-form").reset();
-                alert("Form Submitted Successfully");
-            }, function (error) {
-                console.log('FAILED...', error);
-                alert("Form Submission Failed! Try Again");
-            });
-        event.preventDefault();
-    });
-    // <!-- emailjs to mail contact form data -->
 
 });
 
 
-// <!-- typed js effect starts -->
-var typed = new Typed(".typing-text", {
-    strings: [ "web development", "full stack development", "frontend development", "backend development", "web designing"],
+// ================= TYPED JS =================
+new Typed(".typing-text", {
+    strings: [
+        "web development",
+        "full stack development",
+        "frontend development",
+        "backend development",
+        "web designing"
+    ],
     loop: true,
     typeSpeed: 50,
     backSpeed: 25,
     backDelay: 500,
 });
-// <!-- typed js effect ends -->
 
-async function fetchData(type = "skills") {
-    let response
-    type === "skills" ?
-        response = await fetch("skills.json")
-        :
-        response = await fetch("projects.json")
-    const data = await response.json();
-    return data;
+
+// ================= FETCH DATA =================
+
+async function getProjects() {
+    try {
+        const res = await fetch("./assets/data/projects.json"); // ✅ correct path
+
+        if (!res.ok) throw new Error("JSON not found");
+
+        return await res.json();
+    } catch (err) {
+        console.error("Project load error:", err);
+        return [];
+    }
 }
 
-function showSkills(skills) {
-    let skillsContainer = document.getElementById("skillsContainer");
-    let skillHTML = "";
-    skills.forEach(skill => {
-        skillHTML += `
-        <div class="bar">
-              <div class="info">
-                <img src=${skill.icon} alt="skill" />
-                <span>${skill.name}</span>
-              </div>
-            </div>`
+
+// ================= SHOW PROJECTS (NEW CARD UI) =================
+
+function showProjects(projects) {
+    const container = document.querySelector(".work .box-container");
+
+    if (!container) return;
+
+    if (!projects.length) {
+        container.innerHTML = "<p style='color:white'>No projects found</p>";
+        return;
+    }
+
+    let html = "";
+
+    projects.forEach(project => {
+        html += `
+        <div class="grid-item ${project.category || ''}">
+            <div class="project-card">
+
+                <div class="card-header">
+                    <h3>${project.name}</h3>
+                    <span class="status active"></span>
+                </div>
+
+                <p class="description">${project.desc}</p>
+
+                <div class="tech-stack">
+                    ${(project.category || '').split(',').map(tag => 
+                        `<span class="tag">${tag}</span>`
+                    ).join('')}
+                </div>
+
+                ${project.links?.view && project.links.view !== "#" ? `
+                    <a href="${project.links.view}" target="_blank" class="btn">
+                        View →
+                    </a>` : ""}
+
+            </div>
+        </div>`;
     });
-    skillsContainer.innerHTML = skillHTML;
+
+    container.innerHTML = html;
+
+    // ISOTOPE
+    if (typeof $ !== "undefined" && $('.box-container').length) {
+        let $grid = $('.box-container').isotope({
+            itemSelector: '.grid-item',
+            layoutMode: 'fitRows'
+        });
+
+        $('.button-group').on('click', 'button', function () {
+            $('.button-group .is-checked').removeClass('is-checked');
+            $(this).addClass('is-checked');
+
+            let filterValue = $(this).attr('data-filter');
+            $grid.isotope({ filter: filterValue });
+        });
+    }
 }
 
 
-fetchData().then(data => {
-    showSkills(data);
+// ================= INIT =================
+
+document.addEventListener("DOMContentLoaded", () => {
+    getProjects().then(showProjects);
 });
 
 
+// ================= SCROLL REVEAL =================
 
-// <!-- tilt js effect starts -->
-VanillaTilt.init(document.querySelectorAll(".tilt"), {
-    max: 15,
-});
-// <!-- tilt js effect ends -->
-
-// // disable developer mode
-// document.onkeydown = function (e) {
-//     if (e.keyCode == 123) {
-//         return false;
-//     }
-//     if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-//         return false;
-//     }
-//     if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
-//         return false;
-//     }
-//     if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-//         return false;
-//     }
-//     if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
-//         return false;
-//     }
-// }
-
-
-/* ===== SCROLL REVEAL ANIMATION ===== */
 const srtop = ScrollReveal({
     origin: 'top',
     distance: '80px',
@@ -133,47 +151,17 @@ const srtop = ScrollReveal({
     reset: true
 });
 
-/* SCROLL HOME */
 srtop.reveal('.home .content h3', { delay: 200 });
-srtop.reveal('.home .content p', { delay: 200 });
-srtop.reveal('.home .content .btn', { delay: 200 });
-
-srtop.reveal('.home .image', { delay: 400 });
-srtop.reveal('.home .linkedin', { interval: 600 });
-srtop.reveal('.home .github', { interval: 800 });
-srtop.reveal('.home .twitter', { interval: 1000 });
-srtop.reveal('.home .telegram', { interval: 600 });
-srtop.reveal('.home .instagram', { interval: 600 });
-srtop.reveal('.home .dev', { interval: 600 });
-
-/* SCROLL ABOUT */
-srtop.reveal('.about .content h3', { delay: 200 });
-srtop.reveal('.about .content .tag', { delay: 200 });
-srtop.reveal('.about .content p', { delay: 200 });
-srtop.reveal('.about .content .box-container', { delay: 200 });
-srtop.reveal('.about .content .resumebtn', { delay: 200 });
-
-
-/* SCROLL SKILLS */
 srtop.reveal('.skills .container', { interval: 200 });
-srtop.reveal('.skills .container .bar', { delay: 400 });
+srtop.reveal('.work .project-card', { interval: 200 });
 
-/* SCROLL PROJECTS */
-srtop.reveal('.work .box', { interval: 200 });
 
-/* SCROLL EXPERIENCE */
-srtop.reveal('.experience .timeline', { delay: 400 });
-srtop.reveal('.experience .timeline .container', { interval: 400 });
+// ================= HEADER SCROLL =================
 
-/* SCROLL CONTACT */
-srtop.reveal('.contact .container', { delay: 400 });
-srtop.reveal('.contact .container .form-group', { delay: 400 });
-
-/* scroll window */
-$(window).scroll(function(){
+$(window).scroll(function () {
     var sticky = $('.header'),
         scroll = $(window).scrollTop();
-  
+
     if (scroll >= 100) sticky.addClass('headerfixed');
     else sticky.removeClass('headerfixed');
-  });
+});
