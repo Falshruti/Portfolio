@@ -3,7 +3,12 @@
 // Fetch Projects
 async function getProjects() {
     try {
-        const response = await fetch("./assets/data/projects.json"); // update path if needed
+        const response = await fetch("./assets/data/projects.json");
+
+        if (!response.ok) {
+            throw new Error("JSON not found");
+        }
+
         return await response.json();
     } catch (error) {
         console.error("Error loading projects:", error);
@@ -12,12 +17,15 @@ async function getProjects() {
 }
 
 
-// Render Projects (TEXT CARD UI)
+// Render Projects (TEXT CARD UI ONLY)
 function showProjects(projects) {
     const container = document.querySelector(".work .box-container");
 
-    if (!projects.length) {
-        container.innerHTML = "<p>No projects found</p>";
+    // If container not found (safety for other pages)
+    if (!container) return;
+
+    if (!projects || projects.length === 0) {
+        container.innerHTML = "<p style='color:white'>No projects found</p>";
         return;
     }
 
@@ -25,33 +33,29 @@ function showProjects(projects) {
 
     projects.forEach(project => {
 
-        // Tech tags
-        let techHTML = "";
-        if (project.tech && project.tech.length) {
-            techHTML = project.tech
-                .map(t => `<span class="tag">${t}</span>`)
-                .join("");
-        }
-
         html += `
         <div class="grid-item ${project.category || ''}">
             <div class="project-card">
 
                 <div class="card-header">
                     <h3>${project.name}</h3>
-                    <span class="status-dot ${project.status || 'active'}"></span>
+                    <span class="status active"></span>
                 </div>
 
-                <p class="desc">${project.desc}</p>
+                <p class="description">${project.desc}</p>
 
                 <div class="tech-stack">
-                    ${techHTML}
+                    ${(project.category || '').split(',').map(tag => 
+                        `<span class="tag">${tag}</span>`
+                    ).join('')}
                 </div>
 
-                ${project.links && project.links.view ? `
-                <a href="${project.links.view}" target="_blank" class="project-link">
-                    View project →
-                </a>` : ""}
+                <div class="btns">
+                    ${project.links?.view && project.links.view !== "#" ? `
+                        <a href="${project.links.view}" target="_blank" class="btn">
+                            View →
+                        </a>` : ""}
+                </div>
 
             </div>
         </div>`;
@@ -59,31 +63,25 @@ function showProjects(projects) {
 
     container.innerHTML = html;
 
+    // ================= ISOTOPE =================
+    if (typeof $ !== "undefined" && $('.box-container').length) {
+        let $grid = $('.box-container').isotope({
+            itemSelector: '.grid-item',
+            layoutMode: 'fitRows'
+        });
 
-    // ================= ISOTOPE FILTER =================
-    // destroy previous instance (important if reloaded)
-    if ($('.box-container').data('isotope')) {
-        $('.box-container').isotope('destroy');
+        $('.button-group').on('click', 'button', function () {
+            $('.button-group .is-checked').removeClass('is-checked');
+            $(this).addClass('is-checked');
+
+            let filterValue = $(this).attr('data-filter');
+            $grid.isotope({ filter: filterValue });
+        });
     }
-
-    let $grid = $('.box-container').isotope({
-        itemSelector: '.grid-item',
-        layoutMode: 'fitRows'
-    });
-
-    // Filter buttons
-    $('.button-group').off('click').on('click', 'button', function () {
-
-        $('.button-group .is-checked').removeClass('is-checked');
-        $(this).addClass('is-checked');
-
-        let filterValue = $(this).attr('data-filter');
-        $grid.isotope({ filter: filterValue });
-    });
 }
 
 
-// INIT
+// INIT (RUN ONLY AFTER PAGE LOAD)
 document.addEventListener("DOMContentLoaded", () => {
     getProjects().then(showProjects);
 });
