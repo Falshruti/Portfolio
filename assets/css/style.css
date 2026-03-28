@@ -1074,35 +1074,81 @@ form .button-area {
 }
 /* scroll top ends */
 
-/* projects html file */
-#project-work{
+/* ===== PROJECT SECTION ===== */
+#project-work {
   padding-top: 70px;
 }
-.work .button-group{
+
+/* ===== FILTER BUTTON GROUP ===== */
+.work .button-group {
   display: flex;
   flex-wrap: wrap;
-  gap:1rem;
+  gap: 12px;
   margin: 2rem auto;
-  width: 100%;
   justify-content: center;
   align-items: center;
-}
-.work .button-group .btn{
-  outline: none;
-  padding: 1rem 2rem;
-  background: transparent;
-  color: #fff;
-  border: 1px solid #fff;
-  border-radius: 3px;
-  cursor: pointer;
-  font-weight: 500;
-}
-.work .button-group .btn:hover{
-  background-color: #fff;
-  color: #000;
-}
-.work .button-group .btn.is-checked{
-  background-color: #fff;
-  color: #000;
+  max-width: 900px;
 }
 
+/* ===== BUTTON STYLE ===== */
+.work .button-group .btn {
+  padding: 10px 18px;
+  background: #161b22;
+  color: #c9d1d9;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+/* Hover effect */
+.work .button-group .btn:hover {
+  background: #21262d;
+  color: #ffffff;
+  border-color: #58a6ff;
+}
+
+/* Active button */
+.work .button-group .btn.is-checked {
+  background: #58a6ff;
+  color: #fff;
+  border-color: #58a6ff;
+  box-shadow: 0 0 10px rgba(88, 166, 255, 0.4);
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .work .button-group {
+    gap: 8px;
+  }
+
+  .work .button-group .btn {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+}
+
+/* ===== SMALL DEVICES ===== */
+@media (max-width: 480px) {
+  .work .button-group {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 0 10px;
+  }
+
+  .work .button-group::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  .work .button-group::-webkit-scrollbar-thumb {
+    background: #30363d;
+    border-radius: 10px;
+  }
+
+  .work .button-group .btn {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+}
