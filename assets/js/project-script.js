@@ -33,33 +33,35 @@ function showProjects(projects) {
 
     projects.forEach(project => {
 
-        html += `
-        <div class="grid-item ${project.category || ''}">
-            <div class="project-card">
+    let techHTML = "";
 
-                <div class="card-header">
-                    <h3>${project.name}</h3>
-                    <span class="status active"></span>
-                </div>
+    if (project.tech && project.tech.length) {
+        techHTML = project.tech.map(t => `<span class="tag">${t}</span>`).join("");
+    }
 
-                <p class="description">${project.desc}</p>
+    html += `
+    <div class="grid-item ${project.category || ''}">
+        <div class="project-card">
 
-                <div class="tech-stack">
-                    ${(project.category || '').split(',').map(tag => 
-                        `<span class="tag">${tag}</span>`
-                    ).join('')}
-                </div>
-
-                <div class="btns">
-                    ${project.links?.view && project.links.view !== "#" ? `
-                        <a href="${project.links.view}" target="_blank" class="btn">
-                            View →
-                        </a>` : ""}
-                </div>
-
+            <div class="card-header">
+                <h3>${project.name}</h3>
+                <span class="status active"></span>
             </div>
-        </div>`;
-    });
+
+            <p class="description">${project.desc}</p>
+
+            <div class="tech-stack">
+                ${techHTML}
+            </div>
+
+            ${project.links?.view && project.links.view !== "#" ? `
+                <a href="${project.links.view}" target="_blank" class="btn">
+                    View →
+                </a>` : ""}
+
+        </div>
+    </div>`;
+});
 
     container.innerHTML = html;
 
