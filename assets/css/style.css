@@ -1074,81 +1074,169 @@ form .button-area {
 }
 /* scroll top ends */
 
-/* ===== PROJECT SECTION ===== */
+/* ================= PROJECT SECTION ================= */
+
 #project-work {
   padding-top: 70px;
 }
 
-/* ===== FILTER BUTTON GROUP ===== */
+/* SECTION BACKGROUND */
+.work {
+  background: linear-gradient(to bottom, #004e4e, #008080);
+  padding: 3rem 1rem;
+}
+
+.work h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+/* ================= FILTER BUTTONS ================= */
+
 .work .button-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 1rem;
   margin: 2rem auto;
   justify-content: center;
-  align-items: center;
-  max-width: 900px;
 }
 
-/* ===== BUTTON STYLE ===== */
 .work .button-group .btn {
-  padding: 10px 18px;
-  background: #161b22;
-  color: #c9d1d9;
-  border: 1px solid #30363d;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  transition: all 0.25s ease;
-}
-
-/* Hover effect */
-.work .button-group .btn:hover {
-  background: #21262d;
-  color: #ffffff;
-  border-color: #58a6ff;
-}
-
-/* Active button */
-.work .button-group .btn.is-checked {
-  background: #58a6ff;
+  padding: 0.8rem 1.5rem;
+  background: transparent;
   color: #fff;
-  border-color: #58a6ff;
-  box-shadow: 0 0 10px rgba(88, 166, 255, 0.4);
+  border: 1px solid #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 0.3s ease;
+  font-size: 0.9rem;
 }
 
-/* ===== MOBILE RESPONSIVE ===== */
-@media (max-width: 768px) {
-  .work .button-group {
-    gap: 8px;
-  }
+.work .button-group .btn:hover,
+.work .button-group .btn.is-checked {
+  background: #fff;
+  color: #000;
+}
 
-  .work .button-group .btn {
-    padding: 8px 14px;
-    font-size: 13px;
+/* ================= GRID ================= */
+
+.work .box-container {
+  display: flex;              /* IMPORTANT for isotope */
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* GRID ITEM */
+.grid-item {
+  width: calc(33.33% - 1rem);
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .grid-item {
+    width: calc(50% - 1rem);
   }
 }
 
-/* ===== SMALL DEVICES ===== */
-@media (max-width: 480px) {
-  .work .button-group {
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding: 0 10px;
+@media (max-width: 600px) {
+  .grid-item {
+    width: 100%;
   }
+}
 
-  .work .button-group::-webkit-scrollbar {
-    height: 5px;
-  }
+/* ================= CARD ================= */
 
-  .work .button-group::-webkit-scrollbar-thumb {
-    background: #30363d;
-    border-radius: 10px;
-  }
+.project-card {
+  background: #f8fafc;
+  border-radius: 14px;
+  padding: 1.5rem;
+  border: 1px solid #e2e8f0;
+  height: 100%;
+  transition: all 0.3s ease;
+}
 
-  .work .button-group .btn {
-    flex: 0 0 auto;
-    white-space: nowrap;
-  }
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* ================= HEADER ================= */
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header h3 {
+  font-size: 1.3rem;
+  color: #111827;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* STATUS DOT */
+.status {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.status.active {
+  background: #22c55e;
+}
+
+.status.live {
+  background: #3b82f6;
+}
+
+/* ================= DESCRIPTION ================= */
+
+.description {
+  font-size: 0.95rem;
+  color: #4b5563;
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+
+/* ================= TAGS ================= */
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 1rem;
+}
+
+.tag {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* TAG COLORS */
+.tag:nth-child(1) { background: #dbeafe; color: #1d4ed8; }
+.tag:nth-child(2) { background: #ede9fe; color: #6d28d9; }
+.tag:nth-child(3) { background: #dcfce7; color: #166534; }
+.tag:nth-child(4) { background: #fef3c7; color: #92400e; }
+.tag:nth-child(5) { background: #fee2e2; color: #991b1b; }
+
+/* ================= BUTTON ================= */
+
+.project-card .btn {
+  display: inline-block;
+  font-size: 14px;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.project-card .btn:hover {
+  text-decoration: underline;
 }
