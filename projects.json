@@ -1,137 +1,122 @@
 [
   {
     "name": "Finexa – Fintech Web Platform",
-    "desc": "Multi-module fintech SPA built with React.js and Node.js. Features secure OAuth 2.0 & JWT authentication, role-based CRM dashboards with real-time reporting, RESTful API integration, AWS S3 storage, and CI/CD pipelines. Query optimisation reduced page load times by ~40%.",
-    "image": "assets/images/projects/Finexa Dashboard.png",
+    "desc": "Multi-module fintech SPA built with React.js and Node.js...",
     "category": "reactjs",
-    "links": {
-      "view": "#"
-    }
+    "status": "active",
+    "tech": ["React.js", "Node.js", "AWS"],
+    "links": { "view": "#" }
   },
   {
     "name": "Custom CRM & Lead Management System",
-    "desc": "Role-based CRM built from scratch using React.js and Laravel. Features automated lead status workflows, real-time reporting, full CRUD modules, and REST API integration — reducing manual sales follow-up and improving pipeline visibility for operations teams.",
-    "image": "assets/images/projects/crm.png",
+    "desc": "Role-based CRM built from scratch...",
     "category": "reactjs",
-    "links": {
-      "view": "#"
-    }
+    "status": "active",
+    "tech": ["React.js", "Laravel"],
+    "links": { "view": "#" }
   },
   {
     "name": "eCommerce Storefront & Admin Portal",
-    "desc": "Full-featured eCommerce platform built with React.js, Node.js, Laravel, and MySQL. Includes product catalogue management, cart, checkout, order tracking, payment gateway integration, and AWS S3 for media storage.",
-    "image": "assets/images/projects/ecommerce.png",
+    "desc": "Full-featured eCommerce platform...",
     "category": "reactjs",
-    "links": {
-      "view": "#"
-    }
+    "status": "active",
+    "tech": ["React.js", "Node.js", "MySQL"],
+    "links": { "view": "#" }
   },
   {
     "name": "E-Learning Platform",
-    "desc": "Scalable e-learning application built with PHP, React.js, and REST APIs. Features course management, quizzes, and interactive student/instructor dashboards with end-to-end RESTful API integration.",
-    "image": "assets/images/projects/elearning.png",
+    "desc": "Scalable e-learning application...",
     "category": "reactjs",
-    "links": {
-      "view": "#"
-    }
+    "status": "active",
+    "tech": ["React.js", "PHP"],
+    "links": { "view": "#" }
   },
   {
     "name": "College Management Portals",
-    "desc": "Multi-role college management portals (attendance, fee, academics) built using CodeIgniter, Laravel, and PHP. Features RBAC, payment gateway integration, and reusable component architecture across multiple university clients.",
-    "image": "assets/images/projects/college.png",
+    "desc": "Multi-role college management portals...",
     "category": "laravel",
-    "links": {
-      "view": "#"
-    }
+    "status": "active",
+    "tech": ["Laravel", "CodeIgniter"],
+    "links": { "view": "#" }
   },
   {
     "name": "Onbroda",
-    "desc": "A React.js SPA that showcases onboarding screen designs from various popular apps — built to demonstrate UI/UX patterns and responsive component design.",
-    "image": "assets/images/projects/onbroda.png",
+    "desc": "A React.js SPA that showcases onboarding...",
     "category": "reactjs",
-    "links": {
-      "view": "https://onbroda.storyyell.in/"
-    }
+    "status": "live",
+    "tech": ["React.js"],
+    "links": { "view": "https://onbroda.storyyell.in/" }
   },
   {
     "name": "PASHU / ICTRD",
-    "desc": "An e-learning platform for Solapur University built with CodeIgniter — similar to Udemy/Coursera. Features student enrollment, course management, and a learning progress tracker for the Indian Council for Technical Research & Development.",
-    "image": "assets/images/projects/pashu.png",
+    "desc": "An e-learning platform for Solapur University...",
     "category": "codeigniter",
-    "links": {
-      "view": "https://pahsu.ictrd.in/"
-    }
+    "status": "live",
+    "tech": ["CodeIgniter", "PHP"],
+    "links": { "view": "https://pahsu.ictrd.in/" }
   },
   {
     "name": "Symbiosis University Hospital (SUHRC)",
-    "desc": "Hospital management system built with HTML, CSS, JavaScript, jQuery, PHP, Bootstrap, and MySQL. Features OPD scheduling, doctor management, SMTP email notifications, and patient data management.",
-    "image": "assets/images/projects/suhrc.png",
+    "desc": "Hospital management system...",
     "category": "php",
-    "links": {
-      "view": "https://symbiosisuniversityhospital.com/"
-    }
+    "status": "live",
+    "tech": ["PHP", "MySQL"],
+    "links": { "view": "https://symbiosisuniversityhospital.com/" }
   },
   {
     "name": "Vascon",
-    "desc": "Laravel-based web application with a fully custom admin dashboard. All content is dynamically managed via backend APIs with a MySQL database — enabling non-technical admins to manage the site independently.",
-    "image": "assets/images/projects/vascon.png",
+    "desc": "Laravel-based web application...",
     "category": "laravel",
-    "links": {
-      "view": "https://www.vascon.com/"
-    }
+    "status": "live",
+    "tech": ["Laravel"],
+    "links": { "view": "https://www.vascon.com/" }
   },
   {
     "name": "JoshiJampla Engineering Pvt Ltd",
-    "desc": "WordPress website for an engineering firm with third-party lead capture API integration, custom plugin development, and a tailored contact workflow for B2B enquiry management.",
-    "image": "assets/images/projects/joshi.png",
+    "desc": "WordPress website...",
     "category": "wordpress",
-    "links": {
-      "view": "https://joshijampala.com/"
-    }
+    "status": "live",
+    "tech": ["WordPress"],
+    "links": { "view": "https://joshijampala.com/" }
   },
   {
     "name": "InCred Asset Management",
-    "desc": "WordPress website built with Elementor, Contact Form with LeadSquared CRM integration, and responsive menu plugins — tailored for a financial asset management brand.",
-    "image": "assets/images/projects/incredam.png",
+    "desc": "WordPress website built with Elementor...",
     "category": "wordpress",
-    "links": {
-      "view": "https://www.incredassetmanagement.com/"
-    }
+    "status": "live",
+    "tech": ["WordPress"],
+    "links": { "view": "https://www.incredassetmanagement.com/" }
   },
   {
     "name": "The Minimal Thinking",
-    "desc": "Digital marketing agency website built on WordPress with custom-designed themes, tailored CSS animations, and JavaScript enhancements for a modern, minimal brand identity.",
-    "image": "assets/images/projects/minimalthiking.png",
+    "desc": "Digital marketing agency website...",
     "category": "wordpress",
-    "links": {
-      "view": "https://theminimalthinking.com/"
-    }
+    "status": "live",
+    "tech": ["WordPress"],
+    "links": { "view": "https://theminimalthinking.com/" }
   },
   {
     "name": "Veko Care",
-    "desc": "WordPress WooCommerce e-commerce store for a healthcare/wellness brand with custom product pages, cart flow, and responsive design.",
-    "image": "assets/images/projects/veko.png",
+    "desc": "WordPress WooCommerce store...",
     "category": "wordpress",
-    "links": {
-      "view": "https://vekocare.com/"
-    }
+    "status": "live",
+    "tech": ["WooCommerce"],
+    "links": { "view": "https://vekocare.com/" }
   },
   {
     "name": "Live Happy",
-    "desc": "WordPress website for a wellbeing and gym installation company — featuring service showcases, enquiry forms, and a clean responsive layout focused on user experience.",
-    "image": "assets/images/projects/live.png",
+    "desc": "WordPress website for wellbeing...",
     "category": "wordpress",
-    "links": {
-      "view": "https://livehappy.group/"
-    }
+    "status": "live",
+    "tech": ["WordPress"],
+    "links": { "view": "https://livehappy.group/" }
   },
   {
     "name": "URBANBED",
-    "desc": "Shopify e-commerce storefront for a furniture/home decor brand. Customised theme, product collections, and optimised checkout experience.",
-    "image": "assets/images/projects/urbanBed.png",
+    "desc": "Shopify e-commerce storefront...",
     "category": "shopify",
-    "links": {
-      "view": "https://urbanbed.in/"
-    }
+    "status": "live",
+    "tech": ["Shopify"],
+    "links": { "view": "https://urbanbed.in/" }
   }
 ]
