@@ -1,105 +1,120 @@
 $(document).ready(function () {
 
+    // MENU TOGGLE
     $('#menu').click(function () {
         $(this).toggleClass('fa-times');
         $('.navbar').toggleClass('nav-toggle');
     });
 
+    // SCROLL BEHAVIOR
     $(window).on('scroll load', function () {
         $('#menu').removeClass('fa-times');
         $('.navbar').removeClass('nav-toggle');
 
         if (window.scrollY > 60) {
-            document.querySelector('#scroll-top').classList.add('active');
+            $('#scroll-top').addClass('active');
         } else {
-            document.querySelector('#scroll-top').classList.remove('active');
+            $('#scroll-top').removeClass('active');
         }
     });
+
 });
 
-// fetch projects start
-function getProjects() {
-    return fetch("projects.json")
-        .then(response => response.json())
-        .then(data => {
-            return data
-        });
+
+// ================= PROJECTS =================
+
+// Fetch Projects
+async function getProjects() {
+    try {
+        const response = await fetch("./assets/data/projects.json"); // update path if needed
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error loading projects:", error);
+        return [];
+    }
 }
 
 
+// Render Projects (NEW DESIGN 🔥)
 function showProjects(projects) {
-    let projectsContainer = document.querySelector(".work .box-container");
-    let projectsHTML = "";
+    const container = document.querySelector(".work .box-container");
+
+    if (!projects.length) {
+        container.innerHTML = "<p>No projects found</p>";
+        return;
+    }
+
+    let html = "";
+
     projects.forEach(project => {
-        projectsHTML += `
-        <div class="grid-item ${project.category}">
-            <div class="box tilt" style="width: 335px; margin: 1rem">
-                <img draggable="false" src="${project.image}" alt="project" />
-                    <div class="content">
-                        <div class="tag">
-                            <h3>${project.name}</h3>
-                        </div>
-                        <div class="desc">
-                            <p>${project.desc}</p>
-                            <div class="btns">
-                                <a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-        </div>`
-    });
-    projectsContainer.innerHTML = projectsHTML;
 
-    // isotope filter products
-    var $grid = $('.box-container').isotope({
-        itemSelector: '.grid-item',
-        layoutMode: 'fitRows',
-        masonry: {
-            columnWidth: 200
+        // Tech tags (if available)
+        let techHTML = "";
+        if (project.tech) {
+            techHTML = project.tech.map(t => `<span class="tag">${t}</span>`).join("");
         }
+
+        html += `
+        <div class="grid-item ${project.category || ''}">
+            <div class="project-card tilt">
+
+                <div class="card-header">
+                    <h3>${project.name}</h3>
+                    <span class="status ${project.status || 'active'}"></span>
+                </div>
+
+                <p class="description">${project.desc}</p>
+
+                <div class="tech-stack">
+                    ${techHTML}
+                </div>
+
+                <div class="btns">
+                    ${project.links?.view ? `
+                        <a href="${project.links.view}" target="_blank" class="btn">
+                            <i class="fas fa-eye"></i> View
+                        </a>` : ""}
+                        
+                    ${project.links?.code ? `
+                        <a href="${project.links.code}" target="_blank" class="btn">
+                            <i class="fab fa-github"></i> Code
+                        </a>` : ""}
+                </div>
+
+            </div>
+        </div>`;
     });
 
-    // filter items on button click
+    container.innerHTML = html;
+
+
+    // ================= ISOTOPE =================
+    let $grid = $('.box-container').isotope({
+        itemSelector: '.grid-item',
+        layoutMode: 'fitRows'
+    });
+
     $('.button-group').on('click', 'button', function () {
-        $('.button-group').find('.is-checked').removeClass('is-checked');
+        $('.button-group .is-checked').removeClass('is-checked');
         $(this).addClass('is-checked');
-        var filterValue = $(this).attr('data-filter');
+
+        let filterValue = $(this).attr('data-filter');
         $grid.isotope({ filter: filterValue });
     });
+
 }
 
-getProjects().then(data => {
-    showProjects(data);
-})
-// fetch projects end
+
+// INIT
+getProjects().then(showProjects);
 
 
-
-// disable developer mode
-// document.onkeydown = function (e) {
-//     if (e.keyCode == 123) {
-//         return false;
-//     }
-//     if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-//         return false;
-//     }
-//     if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
-//         return false;
-//     }
-//     if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-//         return false;
-//     }
-//     if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
-//         return false;
-//     }
-// }
-
-/* scroll window */
-$(window).scroll(function(){
-    var sticky = $('.header'),
+// ================= STICKY HEADER =================
+$(window).scroll(function () {
+    let sticky = $('.header'),
         scroll = $(window).scrollTop();
-  
+
     if (scroll >= 100) sticky.addClass('headerfixed');
     else sticky.removeClass('headerfixed');
-  });
+});
