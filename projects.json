@@ -1,39 +1,39 @@
 [
   {
     "name": "Finexa – Fintech Web Platform",
-    "desc": "Multi-module fintech SPA built with React.js and Node.js...",
+    "desc": "Multi-module fintech SPA with secure OAuth 2.0 & JWT auth, role-based CRM dashboards, AWS S3 integration, and CI/CD pipelines. Query optimisation cut load time by ~40%.",
     "category": "reactjs",
     "status": "active",
-    "tech": ["React.js", "Node.js", "AWS"],
+    "tech": ["React.js", "TypeScript", "Node.js", "MySQL", "AWS", "REST APIs"],
     "links": { "view": "#" }
   },
   {
     "name": "Custom CRM & Lead Management System",
-    "desc": "Role-based CRM built from scratch...",
+    "desc": "Role-based CRM built from scratch with automated lead workflows, real-time reporting, and full CRUD modules — reducing manual sales effort and improving pipeline visibility.",
     "category": "reactjs",
     "status": "active",
-    "tech": ["React.js", "Laravel"],
+    "tech": ["React.js", "Laravel", "REST APIs", "MySQL"],
     "links": { "view": "#" }
   },
   {
     "name": "eCommerce Storefront & Admin Portal",
-    "desc": "Full-featured eCommerce platform...",
+    "desc": "Full-featured eCommerce platform with product catalogue, cart, checkout, order tracking, payment gateway, and AWS S3 media storage with a powerful admin portal.",
     "category": "reactjs",
     "status": "active",
-    "tech": ["React.js", "Node.js", "MySQL"],
+    "tech": ["React.js", "Node.js", "MySQL", "Laravel", "MySQL", "AWS S3"],
     "links": { "view": "#" }
   },
   {
     "name": "E-Learning Platform",
-    "desc": "Scalable e-learning application...",
+    "desc": "Scalable e-learning app with course management, quizzes, and interactive student/instructor dashboards via end-to-end RESTful API integration.",
     "category": "reactjs",
     "status": "active",
-    "tech": ["React.js", "PHP"],
+    "tech": ["React.js", "PHP", "REST APIs", "MySQL"],
     "links": { "view": "#" }
   },
   {
     "name": "College Management Portals",
-    "desc": "Multi-role college management portals...",
+    "desc": "Multi-role portals (attendance, fee, academics) with RBAC, payment gateway integration, and reusable component architecture across multiple university clients.",
     "category": "laravel",
     "status": "active",
     "tech": ["Laravel", "CodeIgniter"],
@@ -41,10 +41,10 @@
   },
   {
     "name": "Onbroda",
-    "desc": "A React.js SPA that showcases onboarding...",
+    "desc": "A React.js SPA showcasing onboarding screen designs from popular apps — demonstrating UI/UX patterns and responsive component design.",
     "category": "reactjs",
     "status": "live",
-    "tech": ["React.js"],
+    "tech": ["React.js", "Javascript", "Firebase", "Rest API"],
     "links": { "view": "https://onbroda.storyyell.in/" }
   },
   {
