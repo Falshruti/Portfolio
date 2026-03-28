@@ -12,7 +12,7 @@ async function getProjects() {
 }
 
 
-// Render Projects (TEXT CARD UI 🚀)
+// Render Projects (TEXT CARD UI)
 function showProjects(projects) {
     const container = document.querySelector(".work .box-container");
 
@@ -27,8 +27,10 @@ function showProjects(projects) {
 
         // Tech tags
         let techHTML = "";
-        if (project.tech) {
-            techHTML = project.tech.map(t => `<span class="tag">${t}</span>`).join("");
+        if (project.tech && project.tech.length) {
+            techHTML = project.tech
+                .map(t => `<span class="tag">${t}</span>`)
+                .join("");
         }
 
         html += `
@@ -37,21 +39,19 @@ function showProjects(projects) {
 
                 <div class="card-header">
                     <h3>${project.name}</h3>
-                    <span class="status ${project.status || 'active'}"></span>
+                    <span class="status-dot ${project.status || 'active'}"></span>
                 </div>
 
-                <p class="description">${project.desc}</p>
+                <p class="desc">${project.desc}</p>
 
                 <div class="tech-stack">
                     ${techHTML}
                 </div>
 
-                <div class="btns">
-                    ${project.links?.view ? `
-                        <a href="${project.links.view}" target="_blank" class="btn">
-                            View →
-                        </a>` : ""}
-                </div>
+                ${project.links && project.links.view ? `
+                <a href="${project.links.view}" target="_blank" class="project-link">
+                    View project →
+                </a>` : ""}
 
             </div>
         </div>`;
@@ -60,13 +60,20 @@ function showProjects(projects) {
     container.innerHTML = html;
 
 
-    // ================= ISOTOPE =================
+    // ================= ISOTOPE FILTER =================
+    // destroy previous instance (important if reloaded)
+    if ($('.box-container').data('isotope')) {
+        $('.box-container').isotope('destroy');
+    }
+
     let $grid = $('.box-container').isotope({
         itemSelector: '.grid-item',
         layoutMode: 'fitRows'
     });
 
-    $('.button-group').on('click', 'button', function () {
+    // Filter buttons
+    $('.button-group').off('click').on('click', 'button', function () {
+
         $('.button-group .is-checked').removeClass('is-checked');
         $(this).addClass('is-checked');
 
@@ -77,4 +84,6 @@ function showProjects(projects) {
 
 
 // INIT
-getProjects().then(showProjects);
+document.addEventListener("DOMContentLoaded", () => {
+    getProjects().then(showProjects);
+});
