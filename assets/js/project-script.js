@@ -3,7 +3,7 @@
 // Fetch Projects
 async function getProjects() {
     try {
-        const response = await fetch("./assets/data/projects.json");
+        const response = await fetch("./projects.json");
 
         if (!response.ok) {
             throw new Error("JSON not found");
