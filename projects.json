@@ -2,7 +2,7 @@
   {
     "name": "Finexa – Fintech Web Platform",
     "desc": "Multi-module fintech SPA built with React.js and Node.js. Features secure OAuth 2.0 & JWT authentication, role-based CRM dashboards with real-time reporting, RESTful API integration, AWS S3 storage, and CI/CD pipelines. Query optimisation reduced page load times by ~40%.",
-    "image": "assets/images/projects/finexa.png",
+    "image": "assets/images/projects/Finexa Dashboard.png",
     "category": "reactjs",
     "links": {
       "view": "#"
