@@ -58,58 +58,11 @@ new Typed(".typing-text", {
 });
 
 
-// ================= TAG CLASS MAP (shared) =================
-
-const tagClassMap = {
-    "reactjs":       "react",
-    "react":         "react",
-    "typescript":    "ts",
-    "nodejs":        "node",
-    "node":          "node",
-    "php":           "php",
-    "laravel":       "laravel",
-    "mysql":         "mysql",
-    "aws":           "aws",
-    "codeigniter":   "ci",
-    "codeigniator":  "ci",
-    "wordpress":     "wp",
-    "shopify":       "shopify"
-};
-
-
-// ================= BUILD PROJECT CARD HTML =================
-
-function buildProjectCard(project) {
-    const categories = (project.category || "").split(",").map(c => c.trim()).filter(Boolean);
-    const tagsHTML = categories.map(tag => {
-        const cls = tagClassMap[tag.toLowerCase()] || "default";
-        return `<span class="proj-tag ${cls}">${tag}</span>`;
-    }).join("");
-
-    const btnHTML = (project.links && project.links.view && project.links.view !== "#")
-        ? `<a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>`
-        : `<span style="font-size:11px;color:rgba(255,255,255,0.3);padding:6px 10px;border:1px solid rgba(255,255,255,0.1);border-radius:4px;">Private</span>`;
-
-    return `
-    <div class="box">
-        <img src="${project.image}" alt="${project.name}" onerror="this.style.display='none'" />
-        <div class="content">
-            <div class="tag"><h3>${project.name}</h3></div>
-            <div class="desc">
-                <p>${project.desc}</p>
-                <div class="proj-tags">${tagsHTML}</div>
-                <div class="btns">${btnHTML}</div>
-            </div>
-        </div>
-    </div>`;
-}
-
-
-// ================= FETCH SKILLS =================
+// ================= SKILLS =================
 
 async function getSkills() {
     try {
-        const res = await fetch("./skills.json");
+        const res = await fetch("https://falshruti.github.io/Portfolio/skills.json");
         if (!res.ok) throw new Error("Skills JSON not found");
         return await res.json();
     } catch (err) {
@@ -117,9 +70,6 @@ async function getSkills() {
         return [];
     }
 }
-
-
-// ================= SHOW SKILLS =================
 
 function showSkills(skills) {
     const container = document.querySelector("#skillsContainer");
@@ -141,35 +91,60 @@ function showSkills(skills) {
 }
 
 
-// ================= FETCH PROJECTS =================
+// ================= PROJECTS =================
 
 async function getProjects() {
     try {
-        const res = await fetch("./projects.json");
-        if (!res.ok) throw new Error("Projects JSON not found");
-        return await res.json();
-    } catch (err) {
-        console.error("Project load error:", err);
+        const response = await fetch("https://falshruti.github.io/Portfolio/projects.json");
+        if (!response.ok) {
+            throw new Error("JSON not found");
+        }
+        return await response.json();
+    } catch (error) {
+        console.error("Error loading projects:", error);
         return [];
     }
 }
 
-
-// ================= SHOW PROJECTS — HOME (first 6 only) =================
-
-function showHomeProjects(projects) {
+// Render Projects — same card design as project-script.js, first 6 only
+function showProjects(projects) {
     const container = document.querySelector(".work .box-container");
     if (!container) return;
 
-    // only first 6 on homepage — rest shown on projects.html
-    const first6 = projects.slice(0, 6);
-
-    if (!first6.length) {
+    if (!projects || projects.length === 0) {
         container.innerHTML = "<p style='color:white'>No projects found</p>";
         return;
     }
 
-    container.innerHTML = first6.map(buildProjectCard).join("");
+    // only first 6 on homepage
+    const first6 = projects.slice(0, 6);
+
+    let html = "";
+    first6.forEach(project => {
+        let techHTML = "";
+        if (project.tech && project.tech.length) {
+            techHTML = project.tech.map(t => `<span class="tag">${t}</span>`).join("");
+        }
+        html += `
+        <div class="grid-item ${project.category || ''}">
+            <div class="project-card">
+                <div class="card-header">
+                    <h3>${project.name}</h3>
+                    <span class="status active"></span>
+                </div>
+                <p class="description">${project.desc}</p>
+                <div class="tech-stack">
+                    ${techHTML}
+                </div>
+                ${project.links?.view && project.links.view !== "#" ? `
+                    <a href="${project.links.view}" target="_blank" class="btn">
+                        View →
+                    </a>` : ""}
+            </div>
+        </div>`;
+    });
+
+    container.innerHTML = html;
 }
 
 
@@ -177,7 +152,7 @@ function showHomeProjects(projects) {
 
 document.addEventListener("DOMContentLoaded", () => {
     getSkills().then(showSkills);
-    getProjects().then(showHomeProjects);
+    getProjects().then(showProjects);
 });
 
 
@@ -192,7 +167,7 @@ const srtop = ScrollReveal({
 
 srtop.reveal('.home .content h3', { delay: 200 });
 srtop.reveal('.skills .container .bar', { interval: 100 });
-srtop.reveal('.work .box', { interval: 200 });
+srtop.reveal('.work .project-card', { interval: 200 });
 
 
 // ================= HEADER SCROLL =================
