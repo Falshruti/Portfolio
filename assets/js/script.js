@@ -74,12 +74,10 @@ async function getSkills() {
 function showSkills(skills) {
     const container = document.querySelector("#skillsContainer");
     if (!container) return;
-
     if (!skills.length) {
         container.innerHTML = "<p style='color:white'>No skills found</p>";
         return;
     }
-
     container.innerHTML = skills.map(skill => `
         <div class="bar">
             <div class="info">
@@ -106,21 +104,18 @@ async function getProjects() {
     }
 }
 
-// Render Projects — same card design as project-script.js, first 6 only
+// Render Projects — same card as project-script.js, first 6 only
 function showProjects(projects) {
     const container = document.querySelector(".work .box-container");
     if (!container) return;
-
     if (!projects || projects.length === 0) {
         container.innerHTML = "<p style='color:white'>No projects found</p>";
         return;
     }
 
     // only first 6 on homepage
-    const first6 = projects.slice(0, 6);
-
     let html = "";
-    first6.forEach(project => {
+    projects.slice(0, 6).forEach(project => {
         let techHTML = "";
         if (project.tech && project.tech.length) {
             techHTML = project.tech.map(t => `<span class="tag">${t}</span>`).join("");
