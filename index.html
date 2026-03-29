@@ -6,36 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="falshruti balsaraf, portfolio, shruti, full stack dev, personal portfolio lifecodes, portfolio design, portfolio website, personal portfolio" />
     <meta name="description" content="Welcome to Falshruti Portfolio. Senior Frontend & Full Stack Engineer" />
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Favicon -->
     <link id='favicon' rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-png">
     <title>Falshruti Balsaraf | Portfolio</title>
     <style>
-      .work .box-container .box:nth-child(n+7) {
-          display: none !important;
-          opacity:0;
-      }
+      .work .box-container .box:nth-child(n+7) { display: none !important; opacity: 0; }
+      .proj-tags { display: flex; flex-wrap: wrap; gap: 5px; margin: 8px 0 10px; }
+      .proj-tag { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 4px; letter-spacing: 0.03em; }
+      .proj-tag.react    { background: #1b3a5c; color: #85B7EB; }
+      .proj-tag.ts       { background: #2a2060; color: #c9c4ff; }
+      .proj-tag.node     { background: #1a3310; color: #97C459; }
+      .proj-tag.php      { background: #2a2060; color: #c9c4ff; }
+      .proj-tag.laravel  { background: #3d1a0f; color: #F0997B; }
+      .proj-tag.mysql    { background: #3d2800; color: #FAC775; }
+      .proj-tag.aws      { background: #3d2800; color: #FAC775; }
+      .proj-tag.ci       { background: #3d1030; color: #ED93B1; }
+      .proj-tag.wp       { background: #0d2a40; color: #85B7EB; }
+      .proj-tag.shopify  { background: #1a3310; color: #97C459; }
+      .proj-tag.default  { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); }
     </style>
   </head>
   <body>
     <div id="info-menu">
-      <!-- FIX 2: Updated email address -->
-      <a href="tel:8806902013"><i class="fas fa-phone" style="color: white;font-size: larger;"></i>+91 8806902013</a>
-      <a href="mailto:falshrutibalsaraf007@gmail.com"><i class="fas fa-envelope" style="color: white;font-size: larger;"></i>falshrutibalsaraf007@gmail.com</a>
-      <div style="float: right;">
+      <a href="tel:8806902013"><i class="fas fa-phone" style="color:white;font-size:larger;"></i>+91 8806902013</a>
+      <a href="mailto:falshrutibalsaraf007@gmail.com"><i class="fas fa-envelope" style="color:white;font-size:larger;"></i>falshrutibalsaraf007@gmail.com</a>
+      <div style="float:right;">
         <a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/falshruti-balsaraf-844788193/" target="_blank">
-          <i class="fab fa-linkedin" style="color: white;font-size: larger;"></i>
+          <i class="fab fa-linkedin" style="color:white;font-size:larger;"></i>
         </a>
       </div>
     </div>
-    <!-- navbar starts -->
+
     <header class="header">
-      <a href="https://falshruti.github.io/Portfolio/" class="logo">
-        FS Portfolio
-      </a>
+      <a href="https://falshruti.github.io/Portfolio/" class="logo">FS Portfolio</a>
       <div id="menu" class="fas fa-bars"></div>
       <nav class="navbar">
         <ul>
@@ -48,135 +52,66 @@
         </ul>
       </nav>
     </header>
-    <!-- navbar ends -->
 
-    <!-- hero section starts -->
     <section class="home" id="home">
       <div id="banner"></div>
       <div class="content">
-        <!-- FIX 1: Updated title in hero typing text (handled via script.js typingText array) -->
         <h2>Hi There, <br /> I'm Falshruti <span>Balsaraf</span></h2>
         <p>i am into <span class="typing-text"></span></p>
-        <a href="#about" class="btn">
-          <span>About Me</span>
-          <i class="fas fa-arrow-circle-down"></i>
-        </a>
+        <a href="#about" class="btn"><span>About Me</span><i class="fas fa-arrow-circle-down"></i></a>
       </div>
-      <div class="image">
-        <img src="./assets/images/herw.jpg" alt="">
-      </div>
+      <div class="image"><img src="./assets/images/herw.jpg" alt=""></div>
     </section>
-    <!-- hero section ends -->
 
-    <!-- about section starts -->
     <section class="about" id="about">
       <h2 class="heading">About <span>Me</span></h2>
       <div class="row">
-        <div class="image">
-          <img src="./assets/images/profile-port.jpg" alt="">
-        </div>
+        <div class="image"><img src="./assets/images/profile-port.jpg" alt=""></div>
         <div class="content">
           <h3>I'm Falshruti Balsaraf</h3>
-          <!-- FIX 1: Updated role title -->
           <span class="tag">Senior Frontend Engineer | Full Stack Engineer</span>
-          <!-- FIX 1: Updated bio — 5 years, correct role, updated summary -->
           <p>Full Stack Engineer with 5 years of hands-on experience specialising in React.js SPA development, JavaScript/TypeScript, and REST API integration. Proven track record delivering scalable eCommerce and fintech platforms with responsive, accessible UIs. Passionate about clean code, digital transformation, and continuous improvement.</p>
           <div class="box-container">
             <div class="box">
-              <p>
-                <span>education : </span> B.E. Electronics &amp; Communication Engineering, Nagpur University — 2020 (CGPA: 9.04/10)
-              </p>
-              <!-- FIX 2: Updated email -->
-              <p>
-                <span>email : </span>falshrutibalsaraf007@gmail.com
-              </p>
-              <p>
-                <span>Mobile No : </span> 8806902013
-              </p>
-              <p>
-                <span>place : </span> Pune, Maharashtra, India
-              </p>
+              <p><span>education : </span> B.E. Electronics &amp; Communication Engineering, Nagpur University — 2020 (CGPA: 9.04/10)</p>
+              <p><span>email : </span>falshrutibalsaraf007@gmail.com</p>
+              <p><span>Mobile No : </span> 8806902013</p>
+              <p><span>place : </span> Pune, Maharashtra, India</p>
             </div>
           </div>
           <div class="resumebtn">
             <a href="assets/images/Falshruti_Balsaraf_Resume.pdf" target="_blank" class="btn">
-              <span>Resume</span>
-              <i class="fas fa-chevron-right"></i>
+              <span>Resume</span><i class="fas fa-chevron-right"></i>
             </a>
           </div>
         </div>
       </div>
     </section>
-    <!-- about section ends -->
 
-    <!-- skills section starts -->
+    <!-- skills section — filled by getSkills() from assets/data/skills.json -->
     <section class="skills" id="skills">
-      <h2 class="heading">
-        <i class="fas fa-laptop-code"></i> Skills & Abilities
-      </h2>
+      <h2 class="heading"><i class="fas fa-laptop-code"></i> Skills & Abilities</h2>
       <div class="container">
-        <!-- FIX 6: Added skills inline as fallback in case skillsContainer JS doesn't populate -->
-        <div class="row" id="skillsContainer">
-        </div>
-        <!-- FIX 6: Skills grouped by category for better readability -->
-        <div class="skills-categories" style="margin-top:1rem;">
-          <div class="skill-group">
-            <h4>Frontend</h4>
-            <p>React.js (SPA / Hooks), JavaScript ES6+, TypeScript, HTML5, CSS3, Bootstrap, Vue.js, Responsive Web Design</p>
-          </div>
-          <div class="skill-group">
-            <h4>Backend</h4>
-            <p>Laravel (PHP), Node.js, CodeIgniter, RESTful APIs, Role-Based Access Control (RBAC)</p>
-          </div>
-          <div class="skill-group">
-            <h4>Auth &amp; API</h4>
-            <p>OAuth 2.0, OIDC, JWT, API Integration, Postman, Third-party Payment Gateway Integration</p>
-          </div>
-          <div class="skill-group">
-            <h4>DevOps / CI-CD</h4>
-            <p>Git, GitHub, AWS (S3 / Deployment Pipelines), Microsoft Azure, CI/CD, Build &amp; Release Management</p>
-          </div>
-          <div class="skill-group">
-            <h4>Databases</h4>
-            <p>MySQL, PostgreSQL, MongoDB — schema design &amp; query optimisation</p>
-          </div>
-          <div class="skill-group">
-            <h4>Tools &amp; Agile</h4>
-            <p>GitHub Copilot, VS Code, Agile/Scrum, TDD/ATDD, Sprint Planning, Code Reviews</p>
-          </div>
-        </div>
+        <div class="row" id="skillsContainer"></div>
       </div>
     </section>
-    <!-- skills section ends -->
 
-    <!-- work project section starts -->
+    <!-- work section — filled by getProjects() from assets/data/projects.json -->
     <section class="work" id="work">
-      <h2 class="heading">
-        <i class="fas fa-laptop-code"></i> Projects Made
-      </h2>
-      <div class="box-container">
-      </div>
+      <h2 class="heading"><i class="fas fa-laptop-code"></i> Projects Made</h2>
+      <div class="box-container"></div>
       <div class="viewall">
-        <a href="projects.html" class="btn"><span>View All</span>
-          <i class="fas fa-arrow-right"></i>
-        </a>
+        <a href="projects.html" class="btn"><span>View All</span><i class="fas fa-arrow-right"></i></a>
       </div>
     </section>
-    <!-- work project section ends -->
 
-    <!-- experience section starts -->
     <section class="experience" id="experience">
-      <h2 class="heading">
-        <i class="fas fa-briefcase"></i> Experience
-      </h2>
+      <h2 class="heading"><i class="fas fa-briefcase"></i> Experience</h2>
       <div class="timeline">
 
-        <!-- FIX 3: Added current job at Finlabs India -->
         <div class="container right">
           <div class="content">
-            <div class="tag">
-              <h2>Finlabs India Pvt. Ltd.</h2>
-            </div>
+            <div class="tag"><h2>Finlabs India Pvt. Ltd.</h2></div>
             <div class="desc">
               <h3>Senior Frontend / Full Stack Engineer</h3>
               <p>2025 - Present</p>
@@ -185,12 +120,9 @@
           </div>
         </div>
 
-        <!-- FIX 4: Updated Xebec dates — no longer "present" -->
         <div class="container left">
           <div class="content">
-            <div class="tag">
-              <h2>Xebec Communication Pvt. Ltd.</h2>
-            </div>
+            <div class="tag"><h2>Xebec Communication Pvt. Ltd.</h2></div>
             <div class="desc">
               <h3>Full Stack Engineer</h3>
               <p>2022 - 2024</p>
@@ -199,12 +131,9 @@
           </div>
         </div>
 
-        <!-- FIX 5: Corrected India Active Software dates -->
         <div class="container right">
           <div class="content">
-            <div class="tag">
-              <h2>India Active Software Inc. (ICTRD)</h2>
-            </div>
+            <div class="tag"><h2>India Active Software Inc. (ICTRD)</h2></div>
             <div class="desc">
               <h3>Software Engineer</h3>
               <p>2021 - 2022</p>
@@ -215,9 +144,7 @@
 
         <div class="container left">
           <div class="content">
-            <div class="tag">
-              <h2>Simplex Software Solution</h2>
-            </div>
+            <div class="tag"><h2>Simplex Software Solution</h2></div>
             <div class="desc">
               <h3>Web Developer Intern</h3>
               <p>2020 - 2021</p>
@@ -228,9 +155,7 @@
 
         <div class="container right">
           <div class="content">
-            <div class="tag">
-              <h2>Codeocity</h2>
-            </div>
+            <div class="tag"><h2>Codeocity</h2></div>
             <div class="desc">
               <h3>PHP Developer | Certificate</h3>
               <p>Jan 2021 - April 2021</p>
@@ -240,34 +165,18 @@
 
       </div>
     </section>
-    <!-- experience section ends -->
 
-    <!-- contact section starts -->
     <section class="contact" id="contact">
       <h2 class="heading">Get in <span>Touch</span></h2>
       <div class="container">
         <div class="content">
-          <div class="image-box">
-            <img draggable="false" src="./assets/images/contact1.png" alt="">
-          </div>
+          <div class="image-box"><img draggable="false" src="./assets/images/contact1.png" alt=""></div>
           <form id="contact-form">
             <div class="form-group">
-              <div class="field">
-                <input type="text" name="name" placeholder="Name" required>
-                <i class='fas fa-user'></i>
-              </div>
-              <div class="field">
-                <input type="text" name="email" placeholder="Email" required>
-                <i class='fas fa-envelope'></i>
-              </div>
-              <div class="field">
-                <input type="text" name="phone" placeholder="Phone">
-                <i class='fas fa-phone-alt'></i>
-              </div>
-              <div class="message">
-                <textarea placeholder="Message" name="message" required></textarea>
-                <i class="fas fa-comment-dots"></i>
-              </div>
+              <div class="field"><input type="text" name="name" placeholder="Name" required><i class='fas fa-user'></i></div>
+              <div class="field"><input type="text" name="email" placeholder="Email" required><i class='fas fa-envelope'></i></div>
+              <div class="field"><input type="text" name="phone" placeholder="Phone"><i class='fas fa-phone-alt'></i></div>
+              <div class="message"><textarea placeholder="Message" name="message" required></textarea><i class="fas fa-comment-dots"></i></div>
             </div>
             <div class="button-area">
               <button type="submit">Submit <i class="fa fa-paper-plane"></i></button>
@@ -276,9 +185,7 @@
         </div>
       </div>
     </section>
-    <!-- contact section ends -->
 
-    <!-- footer section starts -->
     <section class="footer">
       <div class="box-container">
         <div class="box">
@@ -296,12 +203,10 @@
         <div class="box">
           <h3>contact info</h3>
           <p><i class="fas fa-phone"></i>+91 8806902013</p>
-          <!-- FIX 2: Updated email in footer -->
           <p><i class="fas fa-envelope"></i>falshrutibalsaraf007@gmail.com</p>
           <p><i class="fas fa-map-marked-alt"></i>Pune, Maharashtra, India</p>
           <div class="share">
             <a href="https://www.linkedin.com/in/falshruti-balsaraf-844788193/" class="fab fa-linkedin" aria-label="LinkedIn" target="_blank"></a>
-            <!-- FIX 2: Updated email in footer share links -->
             <a href="mailto:falshrutibalsaraf007@gmail.com" class="fas fa-envelope" aria-label="Mail" target="_blank"></a>
             <a href="tel:8806902013" class="fas fa-phone" target="_blank"></a>
           </div>
@@ -309,19 +214,15 @@
       </div>
       <h1 class="credit">Designed with <i class="fa fa-heart pulse"></i> by <a href="https://www.linkedin.com/in/falshruti-balsaraf-844788193/">falshruti balsaraf</a></h1>
     </section>
-    <!-- footer section ends -->
 
-    <!-- scroll top btn -->
     <a href="#home" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
 
-    <!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js" integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
     <script src="./assets/js/script.js"></script>
-      <script src="./assets/js/project-script.js"></script>
+     <script src="./assets/js/project-script.js"></script>
   </body>
 </html>
