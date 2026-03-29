@@ -4,8 +4,8 @@
     "desc": "Multi-module fintech SPA with secure OAuth 2.0 & JWT auth, role-based CRM dashboards, AWS S3 integration, and CI/CD pipelines. Query optimisation cut load time by ~40%.",
     "category": "reactjs",
     "status": "active",
-    "tech": ["React.js", "TypeScript", "Node.js", "MySQL", "AWS", "REST APIs"],
-    "links": { "view": "#" }
+    "tech": ["React.js", "TypeScript", "Node.js", "MySQL", "Payment Gateway", "REST APIs", "MongoDB"],
+    "links": { "view": "https://app.finlabsindia.org/" }
   },
   {
     "name": "Custom CRM & Lead Management System",
@@ -20,23 +20,23 @@
     "desc": "Full-featured eCommerce platform with product catalogue, cart, checkout, order tracking, payment gateway, and AWS S3 media storage with a powerful admin portal.",
     "category": "reactjs",
     "status": "active",
-    "tech": ["React.js", "Node.js", "MySQL", "Laravel", "MySQL", "AWS S3"],
-    "links": { "view": "#" }
+    "tech": ["React.js", "Node.js", "Payment Gateway", "Laravel", "MySQL", "AWS S3"],
+    "links": { "view": "https://shreevishwavati.com/medicines/" }
   },
   {
     "name": "E-Learning Platform",
     "desc": "Scalable e-learning app with course management, quizzes, and interactive student/instructor dashboards via end-to-end RESTful API integration.",
     "category": "reactjs",
     "status": "active",
-    "tech": ["React.js", "PHP", "REST APIs", "MySQL"],
-    "links": { "view": "#" }
+    "tech": ["React.js", "Laravel", "REST APIs", "MySQL"],
+    "links": { "view": "https://learninghub.finlabsindia.org/" }
   },
   {
     "name": "College Management Portals",
     "desc": "Multi-role portals (attendance, fee, academics) with RBAC, payment gateway integration, and reusable component architecture across multiple university clients.",
     "category": "laravel",
     "status": "active",
-    "tech": ["Laravel", "CodeIgniter"],
+    "tech": ["Laravel", "MySql"],
     "links": { "view": "#" }
   },
   {
@@ -48,32 +48,56 @@
     "links": { "view": "https://onbroda.storyyell.in/" }
   },
   {
+    "name": "Finlabs India Pvt. Ltd",
+    "desc": "WordPress website with informative website with setup of security plugins and custom plugin development for enquiry management.",
+    "category": "wordpress",
+    "status": "live",
+    "tech": ["React js", "WordPress"],
+    "links": { "view": "https://finlabsindia.org/" }
+  },
+  {
+    "name": "Bank of India Shareholdings Limited (BOISL)",
+    "desc": "WordPress website with informative website with setup of security plugins and custom plugin development for enquiry management.",
+    "category": "wordpress",
+    "status": "live",
+    "tech": ["WordPress"],
+    "links": { "view": "https://joshijampala.com/" }
+  },
+  {
     "name": "PASHU / ICTRD",
-    "desc": "An e-learning platform for Solapur University...",
+    "desc": "E-learning platform for Solapur University with student enrollment, course management, and learning progress tracker for India's ICTRD initiative.",
     "category": "codeigniter",
     "status": "live",
-    "tech": ["CodeIgniter", "PHP"],
+    "tech": ["CodeIgniter", "PHP", "MySql", "API", "Ajax"],
     "links": { "view": "https://pahsu.ictrd.in/" }
   },
   {
     "name": "Symbiosis University Hospital (SUHRC)",
-    "desc": "Hospital management system...",
+    "desc": "Hospital management system with OPD scheduling, doctor management, SMTP email notifications, and patient data management.",
     "category": "php",
     "status": "live",
-    "tech": ["PHP", "MySQL"],
+    "tech": ["PHP", "MySQL", "Rest API", "Payment Gateway", "Tailwand CSS"],
     "links": { "view": "https://symbiosisuniversityhospital.com/" }
   },
   {
     "name": "Vascon",
-    "desc": "Laravel-based web application...",
+    "desc": "Laravel-based web application with a fully custom admin dashboard. All content dynamically managed via backend APIs with MySQL database.",
     "category": "laravel",
     "status": "live",
-    "tech": ["Laravel"],
+    "tech": ["Laravel", "Admin Dashboard", "MySql"],
     "links": { "view": "https://www.vascon.com/" }
   },
   {
+    "name": "Bank of India Shareholdings Limited (BOISL)",
+    "desc": "WordPress website with informative website with setup of security plugins and custom plugin development for enquiry management.",
+    "category": "wordpress",
+    "status": "live",
+    "tech": ["WordPress"],
+    "links": { "view": "https://uat.boislindia.com/" }
+  },
+  {
     "name": "JoshiJampla Engineering Pvt Ltd",
-    "desc": "WordPress website...",
+    "desc": "WordPress website with third-party lead capture API integration and custom plugin development for B2B enquiry management.",
     "category": "wordpress",
     "status": "live",
     "tech": ["WordPress"],
@@ -81,23 +105,15 @@
   },
   {
     "name": "InCred Asset Management",
-    "desc": "WordPress website built with Elementor...",
+    "desc": "WordPress website with Elementor, Contact Form with LeadSquared CRM integration, and responsive menu plugins for a financial brand.",
     "category": "wordpress",
     "status": "live",
     "tech": ["WordPress"],
     "links": { "view": "https://www.incredassetmanagement.com/" }
   },
   {
-    "name": "The Minimal Thinking",
-    "desc": "Digital marketing agency website...",
-    "category": "wordpress",
-    "status": "live",
-    "tech": ["WordPress"],
-    "links": { "view": "https://theminimalthinking.com/" }
-  },
-  {
     "name": "Veko Care",
-    "desc": "WordPress WooCommerce store...",
+    "desc": "WordPress WooCommerce e-commerce store for a healthcare/wellness brand with custom product pages, cart flow, and responsive design.",
     "category": "wordpress",
     "status": "live",
     "tech": ["WooCommerce"],
@@ -105,7 +121,7 @@
   },
   {
     "name": "Live Happy",
-    "desc": "WordPress website for wellbeing...",
+    "desc": "WordPress website for a wellbeing and gym installation company with service showcases, enquiry forms, and a clean responsive layout.",
     "category": "wordpress",
     "status": "live",
     "tech": ["WordPress"],
@@ -113,7 +129,7 @@
   },
   {
     "name": "URBANBED",
-    "desc": "Shopify e-commerce storefront...",
+    "desc": "Shopify e-commerce storefront for a furniture brand with customised theme, product collections, and optimised checkout experience.",
     "category": "shopify",
     "status": "live",
     "tech": ["Shopify"],
