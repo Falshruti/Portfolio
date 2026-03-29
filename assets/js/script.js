@@ -62,7 +62,7 @@ new Typed(".typing-text", {
 
 async function getSkills() {
     try {
-        const res = await fetch("../skills.json");
+        const res = await fetch("https://falshruti.github.io/Portfolio/skills.json");
         if (!res.ok) throw new Error("Skills JSON not found");
         return await res.json();
     } catch (err) {
@@ -102,7 +102,7 @@ function showSkills(skills) {
 
 async function getProjects() {
     try {
-        const res = await fetch("./assets/data/projects.json");
+        const res = await fetch("https://falshruti.github.io/Portfolio/projects.json");
         if (!res.ok) throw new Error("Projects JSON not found");
         return await res.json();
     } catch (err) {
