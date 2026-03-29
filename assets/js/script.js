@@ -58,6 +58,53 @@ new Typed(".typing-text", {
 });
 
 
+// ================= TAG CLASS MAP (shared) =================
+
+const tagClassMap = {
+    "reactjs":       "react",
+    "react":         "react",
+    "typescript":    "ts",
+    "nodejs":        "node",
+    "node":          "node",
+    "php":           "php",
+    "laravel":       "laravel",
+    "mysql":         "mysql",
+    "aws":           "aws",
+    "codeigniter":   "ci",
+    "codeigniator":  "ci",
+    "wordpress":     "wp",
+    "shopify":       "shopify"
+};
+
+
+// ================= BUILD PROJECT CARD HTML =================
+
+function buildProjectCard(project) {
+    const categories = (project.category || "").split(",").map(c => c.trim()).filter(Boolean);
+    const tagsHTML = categories.map(tag => {
+        const cls = tagClassMap[tag.toLowerCase()] || "default";
+        return `<span class="proj-tag ${cls}">${tag}</span>`;
+    }).join("");
+
+    const btnHTML = (project.links && project.links.view && project.links.view !== "#")
+        ? `<a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>`
+        : `<span style="font-size:11px;color:rgba(255,255,255,0.3);padding:6px 10px;border:1px solid rgba(255,255,255,0.1);border-radius:4px;">Private</span>`;
+
+    return `
+    <div class="box">
+        <img src="${project.image}" alt="${project.name}" onerror="this.style.display='none'" />
+        <div class="content">
+            <div class="tag"><h3>${project.name}</h3></div>
+            <div class="desc">
+                <p>${project.desc}</p>
+                <div class="proj-tags">${tagsHTML}</div>
+                <div class="btns">${btnHTML}</div>
+            </div>
+        </div>
+    </div>`;
+}
+
+
 // ================= FETCH SKILLS =================
 
 async function getSkills() {
@@ -83,18 +130,14 @@ function showSkills(skills) {
         return;
     }
 
-    let html = "";
-    skills.forEach(skill => {
-        html += `
+    container.innerHTML = skills.map(skill => `
         <div class="bar">
             <div class="info">
                 <img src="${skill.icon}" alt="${skill.name}" onerror="this.style.opacity='0'" />
                 <span>${skill.name}</span>
             </div>
-        </div>`;
-    });
-
-    container.innerHTML = html;
+        </div>`
+    ).join("");
 }
 
 
@@ -112,71 +155,29 @@ async function getProjects() {
 }
 
 
-// ================= SHOW PROJECTS =================
+// ================= SHOW PROJECTS — HOME (first 6 only) =================
 
-function showProjects(projects) {
+function showHomeProjects(projects) {
     const container = document.querySelector(".work .box-container");
     if (!container) return;
 
-    if (!projects.length) {
+    // only first 6 on homepage — rest shown on projects.html
+    const first6 = projects.slice(0, 6);
+
+    if (!first6.length) {
         container.innerHTML = "<p style='color:white'>No projects found</p>";
         return;
     }
 
-    // maps category string → tag CSS class
-    const tagClassMap = {
-        "reactjs":      "react",
-        "react":        "react",
-        "typescript":   "ts",
-        "nodejs":       "node",
-        "node":         "node",
-        "php":          "php",
-        "laravel":      "laravel",
-        "mysql":        "mysql",
-        "aws":          "aws",
-        "codeigniter":  "ci",
-        "codeigniator": "ci",
-        "wordpress":    "wp",
-        "shopify":      "shopify"
-    };
-
-    let html = "";
-    projects.forEach(project => {
-        // build tech tag pills from category field (supports comma-separated values)
-        const categories = (project.category || "").split(",").map(c => c.trim()).filter(Boolean);
-        const tagsHTML = categories.map(tag => {
-            const cls = tagClassMap[tag.toLowerCase()] || "default";
-            return `<span class="proj-tag ${cls}">${tag}</span>`;
-        }).join("");
-
-        // view button or private label
-        const btnHTML = (project.links && project.links.view && project.links.view !== "#")
-            ? `<a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>`
-            : `<span style="font-size:11px;color:rgba(255,255,255,0.3);padding:6px 10px;border:1px solid rgba(255,255,255,0.1);border-radius:4px;">Private</span>`;
-
-        html += `
-        <div class="box">
-            <img src="${project.image}" alt="${project.name}" onerror="this.style.display='none'" />
-            <div class="content">
-                <div class="tag"><h3>${project.name}</h3></div>
-                <div class="desc">
-                    <p>${project.desc}</p>
-                    <div class="proj-tags">${tagsHTML}</div>
-                    <div class="btns">${btnHTML}</div>
-                </div>
-            </div>
-        </div>`;
-    });
-
-    container.innerHTML = html;
+    container.innerHTML = first6.map(buildProjectCard).join("");
 }
 
 
-// ================= INIT — load both on DOM ready =================
+// ================= INIT =================
 
 document.addEventListener("DOMContentLoaded", () => {
     getSkills().then(showSkills);
-    getProjects().then(showProjects);
+    getProjects().then(showHomeProjects);
 });
 
 
