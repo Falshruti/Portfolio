@@ -58,14 +58,52 @@ new Typed(".typing-text", {
 });
 
 
-// ================= FETCH DATA =================
+// ================= FETCH SKILLS =================
+
+async function getSkills() {
+    try {
+        const res = await fetch("./assets/data/skills.json");
+        if (!res.ok) throw new Error("Skills JSON not found");
+        return await res.json();
+    } catch (err) {
+        console.error("Skills load error:", err);
+        return [];
+    }
+}
+
+
+// ================= SHOW SKILLS =================
+
+function showSkills(skills) {
+    const container = document.querySelector("#skillsContainer");
+    if (!container) return;
+
+    if (!skills.length) {
+        container.innerHTML = "<p style='color:white'>No skills found</p>";
+        return;
+    }
+
+    let html = "";
+    skills.forEach(skill => {
+        html += `
+        <div class="bar">
+            <div class="info">
+                <img src="${skill.icon}" alt="${skill.name}" onerror="this.style.opacity='0'" />
+                <span>${skill.name}</span>
+            </div>
+        </div>`;
+    });
+
+    container.innerHTML = html;
+}
+
+
+// ================= FETCH PROJECTS =================
 
 async function getProjects() {
     try {
-        const res = await fetch("./assets/data/projects.json"); // ✅ correct path
-
-        if (!res.ok) throw new Error("JSON not found");
-
+        const res = await fetch("./assets/data/projects.json");
+        if (!res.ok) throw new Error("Projects JSON not found");
         return await res.json();
     } catch (err) {
         console.error("Project load error:", err);
@@ -74,11 +112,10 @@ async function getProjects() {
 }
 
 
-// ================= SHOW PROJECTS (NEW CARD UI) =================
+// ================= SHOW PROJECTS =================
 
 function showProjects(projects) {
     const container = document.querySelector(".work .box-container");
-
     if (!container) return;
 
     if (!projects.length) {
@@ -86,58 +123,59 @@ function showProjects(projects) {
         return;
     }
 
+    // maps category string → tag CSS class
+    const tagClassMap = {
+        "reactjs":      "react",
+        "react":        "react",
+        "typescript":   "ts",
+        "nodejs":       "node",
+        "node":         "node",
+        "php":          "php",
+        "laravel":      "laravel",
+        "mysql":        "mysql",
+        "aws":          "aws",
+        "codeigniter":  "ci",
+        "codeigniator": "ci",
+        "wordpress":    "wp",
+        "shopify":      "shopify"
+    };
+
     let html = "";
-
     projects.forEach(project => {
+        // build tech tag pills from category field (supports comma-separated values)
+        const categories = (project.category || "").split(",").map(c => c.trim()).filter(Boolean);
+        const tagsHTML = categories.map(tag => {
+            const cls = tagClassMap[tag.toLowerCase()] || "default";
+            return `<span class="proj-tag ${cls}">${tag}</span>`;
+        }).join("");
+
+        // view button or private label
+        const btnHTML = (project.links && project.links.view && project.links.view !== "#")
+            ? `<a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>`
+            : `<span style="font-size:11px;color:rgba(255,255,255,0.3);padding:6px 10px;border:1px solid rgba(255,255,255,0.1);border-radius:4px;">Private</span>`;
+
         html += `
-        <div class="grid-item ${project.category || ''}">
-            <div class="project-card">
-
-                <div class="card-header">
-                    <h3>${project.name}</h3>
-                    <span class="status active"></span>
+        <div class="box">
+            <img src="${project.image}" alt="${project.name}" onerror="this.style.display='none'" />
+            <div class="content">
+                <div class="tag"><h3>${project.name}</h3></div>
+                <div class="desc">
+                    <p>${project.desc}</p>
+                    <div class="proj-tags">${tagsHTML}</div>
+                    <div class="btns">${btnHTML}</div>
                 </div>
-
-                <p class="description">${project.desc}</p>
-
-                <div class="tech-stack">
-                    ${(project.category || '').split(',').map(tag => 
-                        `<span class="tag">${tag}</span>`
-                    ).join('')}
-                </div>
-
-                ${project.links?.view && project.links.view !== "#" ? `
-                    <a href="${project.links.view}" target="_blank" class="btn">
-                        View →
-                    </a>` : ""}
-
             </div>
         </div>`;
     });
 
     container.innerHTML = html;
-
-    // ISOTOPE
-    if (typeof $ !== "undefined" && $('.box-container').length) {
-        let $grid = $('.box-container').isotope({
-            itemSelector: '.grid-item',
-            layoutMode: 'fitRows'
-        });
-
-        $('.button-group').on('click', 'button', function () {
-            $('.button-group .is-checked').removeClass('is-checked');
-            $(this).addClass('is-checked');
-
-            let filterValue = $(this).attr('data-filter');
-            $grid.isotope({ filter: filterValue });
-        });
-    }
 }
 
 
-// ================= INIT =================
+// ================= INIT — load both on DOM ready =================
 
 document.addEventListener("DOMContentLoaded", () => {
+    getSkills().then(showSkills);
     getProjects().then(showProjects);
 });
 
@@ -152,8 +190,8 @@ const srtop = ScrollReveal({
 });
 
 srtop.reveal('.home .content h3', { delay: 200 });
-srtop.reveal('.skills .container', { interval: 200 });
-srtop.reveal('.work .project-card', { interval: 200 });
+srtop.reveal('.skills .container .bar', { interval: 100 });
+srtop.reveal('.work .box', { interval: 200 });
 
 
 // ================= HEADER SCROLL =================
