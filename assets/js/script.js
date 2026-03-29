@@ -62,7 +62,7 @@ new Typed(".typing-text", {
 
 async function getSkills() {
     try {
-        const res = await fetch("./assets/data/skills.json");
+        const res = await fetch("../skills.json");
         if (!res.ok) throw new Error("Skills JSON not found");
         return await res.json();
     } catch (err) {
