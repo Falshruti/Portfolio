@@ -50,7 +50,7 @@
   {
   "name": "Climax Advertising Agency",
   "desc": "A modern business website for a creative advertising agency, focused on showcasing branding, digital marketing, and creative campaign services with a clean and responsive UI.",
-  "category": "Javascript",
+  "category": "javascript",
   "status": "live",
   "tech": ["HTML", "CSS", "Javascript", "Ajax", "Responsive Design",  "Performance Optimization"],
   "links": { "view": "https://climaxadvertising.com/" }
