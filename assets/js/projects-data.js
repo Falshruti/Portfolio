@@ -1,0 +1,148 @@
+// ── Projects data — loaded as a global so fetch is not required.
+// Works on file:// (local), local dev server, and GitHub Pages alike.
+window.projectsData = [
+  {
+    "name": "AI Chatbot",
+    "desc": "An interactive AI-powered chatbot built with React.js, featuring real-time conversational UI, dynamic message handling, and seamless API integration for intelligent responses.",
+    "category": "reactjs",
+    "status": "active",
+    "tech": ["React Js", "Node Js", "AI Gemini", "Express Js", "JavaScript", "REST APIs", "Tailwind CSS"],
+    "links": { "view": "https://github.com/Falshruti/Chatbot" }
+  },
+  {
+    "name": "Finexa – Fintech Web Platform",
+    "desc": "Multi-module fintech SPA with secure OAuth 2.0 & JWT auth, role-based CRM dashboards, AWS S3 integration, and CI/CD pipelines. Query optimisation cut load time by ~40%.",
+    "category": "reactjs",
+    "status": "active",
+    "tech": ["React.js", "TypeScript", "Node.js", "MySQL", "Payment Gateway", "REST APIs", "MongoDB"],
+    "links": { "view": "https://app.finlabsindia.org/" }
+  },
+  {
+    "name": "Custom CRM & Lead Management System",
+    "desc": "Role-based CRM built from scratch with automated lead workflows, real-time reporting, and full CRUD modules — reducing manual sales effort and improving pipeline visibility.",
+    "category": "reactjs",
+    "status": "active",
+    "tech": ["React.js", "Laravel", "REST APIs", "MySQL"],
+    "links": { "view": "#" }
+  },
+  {
+    "name": "eCommerce Storefront & Admin Portal",
+    "desc": "Full-featured eCommerce platform with product catalogue, cart, checkout, order tracking, payment gateway, and AWS S3 media storage with a powerful admin portal.",
+    "category": "reactjs",
+    "status": "active",
+    "tech": ["React.js", "Node.js", "Payment Gateway", "Laravel", "MySQL", "AWS S3"],
+    "links": { "view": "https://shreevishwavati.com/medicines/" }
+  },
+  {
+    "name": "E-Learning Platform",
+    "desc": "Scalable e-learning app with course management, quizzes, and interactive student/instructor dashboards via end-to-end RESTful API integration.",
+    "category": "reactjs",
+    "status": "active",
+    "tech": ["React.js", "Laravel", "REST APIs", "MySQL"],
+    "links": { "view": "https://learninghub.finlabsindia.org/" }
+  },
+  {
+    "name": "College Management Portals",
+    "desc": "Multi-role portals (attendance, fee, academics) with RBAC, payment gateway integration, and reusable component architecture across multiple university clients.",
+    "category": "laravel",
+    "status": "active",
+    "tech": ["Laravel", "MySQL"],
+    "links": { "view": "#" }
+  },
+  {
+    "name": "Onbroda",
+    "desc": "A React.js SPA showcasing onboarding screen designs from popular apps — demonstrating UI/UX patterns and responsive component design.",
+    "category": "reactjs",
+    "status": "live",
+    "tech": ["React.js", "JavaScript", "Firebase", "REST API"],
+    "links": { "view": "https://onbroda.storyyell.in/" }
+  },
+  {
+    "name": "Climax Advertising Agency",
+    "desc": "A modern business website for a creative advertising agency, focused on showcasing branding, digital marketing, and creative campaign services with a clean and responsive UI.",
+    "category": "javascript",
+    "status": "live",
+    "tech": ["HTML", "CSS", "JavaScript", "Ajax", "Responsive Design", "Performance Optimization"],
+    "links": { "view": "https://climaxadvertising.com/" }
+  },
+  {
+    "name": "Finlabs India Pvt. Ltd",
+    "desc": "WordPress website with informative pages, security plugin setup, and custom plugin development for enquiry management.",
+    "category": "wordpress",
+    "status": "live",
+    "tech": ["React.js", "WordPress"],
+    "links": { "view": "https://finlabsindia.org/" }
+  },
+  {
+    "name": "Bank of India Shareholdings Limited (BOISL)",
+    "desc": "WordPress informative website with security plugin setup and custom plugin development for enquiry management.",
+    "category": "wordpress",
+    "status": "live",
+    "tech": ["WordPress"],
+    "links": { "view": "https://uat.boislindia.com/" }
+  },
+  {
+    "name": "PASHU / ICTRD",
+    "desc": "E-learning platform for Solapur University with student enrollment, course management, and learning progress tracker for India's ICTRD initiative.",
+    "category": "codeigniter",
+    "status": "live",
+    "tech": ["CodeIgniter", "PHP", "MySQL", "API", "Ajax"],
+    "links": { "view": "https://pahsu.ictrd.in/" }
+  },
+  {
+    "name": "Symbiosis University Hospital (SUHRC)",
+    "desc": "Hospital management system with OPD scheduling, doctor management, SMTP email notifications, and patient data management.",
+    "category": "php",
+    "status": "live",
+    "tech": ["PHP", "MySQL", "REST API", "Payment Gateway", "Tailwind CSS"],
+    "links": { "view": "https://symbiosisuniversityhospital.com/" }
+  },
+  {
+    "name": "Vascon",
+    "desc": "Laravel-based web application with a fully custom admin dashboard. All content dynamically managed via backend APIs with MySQL database.",
+    "category": "laravel",
+    "status": "live",
+    "tech": ["Laravel", "Admin Dashboard", "MySQL"],
+    "links": { "view": "https://www.vascon.com/" }
+  },
+  {
+    "name": "JoshiJampala Engineering Pvt Ltd",
+    "desc": "WordPress website with third-party lead capture API integration and custom plugin development for B2B enquiry management.",
+    "category": "wordpress",
+    "status": "live",
+    "tech": ["WordPress"],
+    "links": { "view": "https://joshijampala.com/" }
+  },
+  {
+    "name": "InCred Asset Management",
+    "desc": "WordPress website with Elementor, Contact Form with LeadSquared CRM integration, and responsive menu plugins for a financial brand.",
+    "category": "wordpress",
+    "status": "live",
+    "tech": ["WordPress"],
+    "links": { "view": "https://www.incredassetmanagement.com/" }
+  },
+  {
+    "name": "Veko Care",
+    "desc": "WordPress WooCommerce e-commerce store for a healthcare/wellness brand with custom product pages, cart flow, and responsive design.",
+    "category": "wordpress",
+    "status": "live",
+    "tech": ["WooCommerce", "WordPress"],
+    "links": { "view": "https://vekocare.com/" }
+  },
+  {
+    "name": "Live Happy",
+    "desc": "WordPress website for a wellbeing and gym installation company with service showcases, enquiry forms, and a clean responsive layout.",
+    "category": "wordpress",
+    "status": "live",
+    "tech": ["WordPress"],
+    "links": { "view": "https://livehappy.group/" }
+  },
+  {
+    "name": "URBANBED",
+    "desc": "Shopify e-commerce storefront for a furniture brand with customised theme, product collections, and optimised checkout experience.",
+    "category": "shopify",
+    "status": "live",
+    "tech": ["Shopify"],
+    "links": { "view": "https://urbanbed.in/" }
+  }
+];

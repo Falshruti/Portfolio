@@ -1074,167 +1074,311 @@ form .button-area {
 }
 /* scroll top ends */
 
-/* ================= PROJECT SECTION ================= */
+/* ================= PROJECT PAGE – LAYOUT & CARDS ================= */
 
-#project-work {
-  padding-top: 70px;
+/* Page top padding to clear fixed header + info-bar */
+.work#work {
+  padding-top: 9rem;
 }
 
-/* SECTION BACKGROUND */
-.work {
-  background: linear-gradient(to bottom, #004e4e, #008080);
-  padding: 3rem 1rem;
+/* Section heading on dark background */
+.work h1.heading,
+.work h2.heading {
+  color: #fff;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
 }
-
-
+.work h1.heading span,
+.work h2.heading span {
+  color: #ffae00;
+}
 
 /* ================= FILTER BUTTONS ================= */
 
 .work .button-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin: 2rem auto;
+  gap: 0.8rem;
+  margin: 2rem auto 1rem;
   justify-content: center;
+  max-width: 1200px;
+  padding: 0 1rem;
 }
 
 .work .button-group .btn {
-  padding: 0.8rem 1.5rem;
+  padding: 0.7rem 1.4rem;
   background: transparent;
   color: #fff;
-  border: 1px solid #fff;
+  border: 1.5px solid rgba(255,255,255,0.7);
   cursor: pointer;
-  border-radius: 4px;
-  transition: 0.3s ease;
-  font-size: 0.9rem;
+  border-radius: 50px;
+  transition: all 0.25s ease;
+  font-size: 1.3rem;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.03rem;
 }
 
 .work .button-group .btn:hover,
 .work .button-group .btn.is-checked {
   background: #fff;
-  color: #000;
+  color: #004e4e;
+  border-color: #fff;
+  font-weight: 600;
 }
 
-/* ================= GRID ================= */
+/* ================= CSS GRID – 3 equal columns ================= */
 
 .work .box-container {
-  display: flex;              /* IMPORTANT for isotope */
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
   max-width: 1200px;
-  margin: auto;
-  margin-bottom:30px;
-  margin-top:25px;
-}
-
-/* GRID ITEM */
-.grid-item {
-  width: calc(33.33% - 1rem);
+  margin: 2rem auto 3rem;
+  padding: 0 1rem;
+  /* Override old flex rules */
+  align-items: stretch;
 }
 
 /* RESPONSIVE */
-@media (max-width: 992px) {
-  .grid-item {
-    width: calc(50% - 1rem);
+@media (max-width: 1024px) {
+  .work .box-container {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 600px) {
-  .grid-item {
-    width: 100%;
+@media (max-width: 640px) {
+  .work .box-container {
+    grid-template-columns: 1fr;
   }
+}
+
+/* Hidden items when filter is applied */
+.grid-item[style*="display: none"] {
+  display: none !important;
+}
+
+/* ================= GRID ITEM ================= */
+
+.grid-item {
+  display: flex;          /* makes card stretch to cell height */
+  width: 100%;
 }
 
 /* ================= CARD ================= */
 
 .project-card {
-  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
   border-radius: 14px;
-  padding: 1.5rem;
+  padding: 2rem;
   border: 1px solid #e2e8f0;
-  height: 100%;
-  transition: all 0.3s ease;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.16);
 }
 
-/* ================= HEADER ================= */
+/* ================= CARD HEADER ================= */
 
 .card-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
 }
 
-.card-header h3 {
-  font-size: 1.7rem;
-  color: #111827;
-  font-weight: 600;
+/* Override global text-transform: capitalize for project titles
+   so acronyms like BOISL, PASHU, CRM etc. display correctly */
+.project-title {
+  font-size: 1.6rem;
+  color: #0f172a;
+  font-weight: 700;
   margin: 0;
+  line-height: 1.3;
+  text-transform: none !important;
+  flex: 1;
 }
 
 /* STATUS DOT */
 .status {
   width: 10px;
   height: 10px;
+  min-width: 10px;
   border-radius: 50%;
+  margin-top: 5px;
 }
 
 .status.active {
   background: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34,197,94,0.25);
 }
 
 .status.live {
   background: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.25);
 }
 
 /* ================= DESCRIPTION ================= */
 
 .description {
-  font-size: 1.3rem;
-  color: #4b5563;
-  margin: 1rem 0;
-  line-height: 1.5;
+  font-size: 1.35rem;
+  color: #475569;
+  margin: 0.5rem 0 1.2rem;
+  line-height: 1.65;
+  text-transform: none !important;
+  flex: 1;               /* pushes tech-stack + button to bottom */
 }
 
-/* ================= TAGS ================= */
+/* ================= TECH TAGS ================= */
 
 .tech-stack {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-bottom: 1rem;
+  margin-bottom: 1.4rem;
 }
 
 .tag {
-  font-size: 12px;
-  padding: 4px 8px;
-  border-radius: 6px;
+  font-size: 1.1rem;
+  padding: 3px 9px;
+  border-radius: 20px;
   font-weight: 500;
+  text-transform: none !important;
+  white-space: nowrap;
 }
 
-/* TAG COLORS */
-.tag:nth-child(1) { background: #dbeafe; color: #1d4ed8; }
-.tag:nth-child(2) { background: #ede9fe; color: #6d28d9; }
-.tag:nth-child(3) { background: #dcfce7; color: #166534; }
-.tag:nth-child(4) { background: #fef3c7; color: #92400e; }
-.tag:nth-child(5) { background: #fee2e2; color: #991b1b; }
-.tag:nth-child(6) { background: #d1d1d1; color: #000000; }
+/* Rotating palette for up to 7 tags */
+.tag:nth-child(7n+1) { background: #dbeafe; color: #1d4ed8; }
+.tag:nth-child(7n+2) { background: #ede9fe; color: #6d28d9; }
+.tag:nth-child(7n+3) { background: #dcfce7; color: #166534; }
+.tag:nth-child(7n+4) { background: #fef3c7; color: #92400e; }
+.tag:nth-child(7n+5) { background: #fee2e2; color: #991b1b; }
+.tag:nth-child(7n+6) { background: #d1fae5; color: #065f46; }
+.tag:nth-child(7n+7) { background: #e0e7ff; color: #3730a3; }
 
-/* ================= BUTTON ================= */
+/* ================= CARD VIEW BUTTON ================= */
 
-.project-card .btn {
-  display: inline-block;
-  font-size: 14px;
-  color: #ffffff;
+.card-view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  font-size: 1.3rem;
+  color: #008080;
+  font-weight: 600;
   text-decoration: none;
-  font-weight: 500;
+  text-transform: none !important;
+  transition: color 0.2s ease, gap 0.2s ease;
 }
 
-.project-card .btn:hover {
-  text-decoration: underline;
+.card-view-btn i {
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.card-view-btn:hover {
+  color: #004e4e;
+}
+
+.card-view-btn:hover i {
+  transform: translate(3px, -3px);
+}
+
+/* ================= CARD ACTIONS ROW ================= */
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  margin-top: auto;
+  flex-wrap: wrap;
+}
+
+/* ================= GITHUB CODE BUTTON ================= */
+
+.card-code-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.3rem;
+  color: #64748b;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: none !important;
+  transition: color 0.2s ease;
+}
+
+.card-code-btn i {
+  font-size: 1.4rem;
+}
+
+.card-code-btn:hover {
+  color: #111827;
+}
+
+/* ================= LOADING STATE ================= */
+
+.loading-state {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 4rem;
+  color: rgba(255,255,255,0.8);
+  font-size: 1.5rem;
+}
+
+.loading-state i {
+  font-size: 3rem;
+}
+
+.no-projects {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: rgba(255,255,255,0.8);
+  font-size: 1.6rem;
+  padding: 4rem;
+}
+
+/* ================= BACK BUTTON ================= */
+
+.backbtn {
+  text-align: center;
+  margin: 1rem 0 4rem;
+}
+
+.back-home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 1.2rem 2.8rem;
+  border-radius: 50px;
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  text-transform: none;
+  transition: all 0.3s ease;
+}
+
+.back-home-btn:hover {
+  background: #fff;
+  color: #004e4e;
+}
+
+.back-home-btn i {
+  transition: transform 0.25s ease;
+}
+
+.back-home-btn:hover i {
+  transform: translateX(-4px);
 }

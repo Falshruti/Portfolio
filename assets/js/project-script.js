@@ -1,89 +1,130 @@
-// ================= PROJECTS =================
+// ================= PROJECTS PAGE SCRIPT =================
 
-// Fetch Projects
+// Get projects: use pre-loaded global first (works on file://),
+// then try local fetch, then fall back to GitHub Pages remote.
 async function getProjects() {
-    try {
-        const response = await fetch("https://falshruti.github.io/Portfolio/projects.json");
+  // ✅ Best path — data already loaded via projects-data.js <script> tag
+  if (window.projectsData && window.projectsData.length) {
+    return window.projectsData;
+  }
 
-        if (!response.ok) {
-            throw new Error("JSON not found");
-        }
+  // Try local JSON (works on a local server / VS Code Live Server)
+  try {
+    const res = await fetch('./projects.json');
+    if (res.ok) return await res.json();
+  } catch (e) { /* blocked on file:// — expected */ }
 
-        return await response.json();
-    } catch (error) {
-        console.error("Error loading projects:", error);
-        return [];
-    }
+  // Final fallback — GitHub Pages hosted copy
+  try {
+    const res = await fetch('https://falshruti.github.io/Portfolio/projects.json');
+    if (res.ok) return await res.json();
+  } catch (e) {
+    console.error('Could not load projects:', e);
+  }
+
+  return [];
 }
 
 
-// Render Projects (TEXT CARD UI ONLY)
+// ── Render project cards ──────────────────────────────────────────────────────
 function showProjects(projects) {
-    const container = document.querySelector(".work .box-container");
+  const container = document.getElementById('projects-container');
+  if (!container) return;
 
-    // If container not found (safety for other pages)
-    if (!container) return;
+  if (!projects || projects.length === 0) {
+    container.innerHTML = `<p class="no-projects">No projects found.</p>`;
+    return;
+  }
 
-    if (!projects || projects.length === 0) {
-        container.innerHTML = "<p style='color:white'>No projects found</p>";
-        return;
-    }
+  let html = '';
 
-    let html = "";
+  projects.forEach(project => {
 
-    projects.forEach(project => {
+    // Tech stack tags
+    const techHTML = (project.tech && project.tech.length)
+      ? project.tech.map(t => `<span class="tag">${t}</span>`).join('')
+      : '';
 
-    let techHTML = "";
+    // Status dot colour
+    const statusClass = project.status === 'active' ? 'active' : 'live';
+    const statusTitle = project.status === 'active' ? 'Active / In Progress' : 'Live';
 
-    if (project.tech && project.tech.length) {
-        techHTML = project.tech.map(t => `<span class="tag">${t}</span>`).join("");
-    }
+    // View button — only when a real URL is provided
+    const viewBtn = (project.links && project.links.view && project.links.view !== '#')
+      ? `<a href="${project.links.view}" target="_blank" rel="noopener" class="card-view-btn">
+           View Project <i class="fas fa-external-link-alt"></i>
+         </a>`
+      : '';
+
+    // Code / GitHub button — only when links.code is present
+    const codeBtn = (project.links && project.links.code)
+      ? `<a href="${project.links.code}" target="_blank" rel="noopener" class="card-code-btn">
+           <i class="fab fa-github"></i> Code
+         </a>`
+      : '';
 
     html += `
     <div class="grid-item ${project.category || ''}">
-        <div class="project-card">
+      <div class="project-card">
 
-            <div class="card-header">
-                <h3>${project.name}</h3>
-                <span class="status active"></span>
-            </div>
-
-            <p class="description">${project.desc}</p>
-
-            <div class="tech-stack">
-                ${techHTML}
-            </div>
-
-            ${project.links?.view && project.links.view !== "#" ? `
-                <a href="${project.links.view}" target="_blank" class="btn">
-                    View →
-                </a>` : ""}
-
+        <div class="card-header">
+          <h3 class="project-title">${project.name}</h3>
+          <span class="status ${statusClass}" title="${statusTitle}"></span>
         </div>
+
+        <p class="description">${project.desc}</p>
+
+        <div class="tech-stack">
+          ${techHTML}
+        </div>
+
+        <div class="card-actions">
+          ${viewBtn}
+          ${codeBtn}
+        </div>
+
+      </div>
     </div>`;
-});
+  });
 
-    container.innerHTML = html;
+  container.innerHTML = html;
 
-    // ================= ISOTOPE =================
-    if (typeof $ !== "undefined" && $('.box-container').length) {
-        let $grid = $('.box-container').isotope({
-            itemSelector: '.grid-item',
-            layoutMode: 'fitRows'
-        });
+  // ── Filter buttons ────────────────────────────────────────────────────────
+  const filterGroup = document.getElementById('filter-group');
+  if (filterGroup) {
+    filterGroup.addEventListener('click', function (e) {
+      const btn = e.target.closest('button');
+      if (!btn) return;
 
-        $('.button-group').on('click', 'button', function () {
-            $('.button-group .is-checked').removeClass('is-checked');
-            $(this).addClass('is-checked');
+      filterGroup.querySelectorAll('.btn').forEach(b => b.classList.remove('is-checked'));
+      btn.classList.add('is-checked');
 
-            let filterValue = $(this).attr('data-filter');
-            $grid.isotope({ filter: filterValue });
-        });
-    }
+      const filter = btn.getAttribute('data-filter');
+      container.querySelectorAll('.grid-item').forEach(item => {
+        if (filter === '*' || item.classList.contains(filter.replace('.', ''))) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  }
+
+  // ── Scroll reveal ─────────────────────────────────────────────────────────
+  if (typeof ScrollReveal !== 'undefined') {
+    ScrollReveal().reveal('.project-card', {
+      origin: 'bottom',
+      distance: '30px',
+      duration: 500,
+      delay: 100,
+      interval: 80,
+      reset: false
+    });
+  }
 }
 
 
-// INIT (RUN ONLY AFTER PAGE LOAD)
-document.addEventListener("DOMContentLoaded", () => {
-    getProjects().then(showProjects);
+// ── Init ──────────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  getProjects().then(showProjects);
 });

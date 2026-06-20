@@ -61,14 +61,18 @@ new Typed(".typing-text", {
 // ================= SKILLS =================
 
 async function getSkills() {
+    // Try local first, fall back to GitHub Pages
     try {
-        const res = await fetch("https://falshruti.github.io/Portfolio/skills.json");
-        if (!res.ok) throw new Error("Skills JSON not found");
-        return await res.json();
+        const res = await fetch('./skills.json');
+        if (res.ok) return await res.json();
+    } catch (e) { /* file:// blocked */ }
+    try {
+        const res = await fetch('https://falshruti.github.io/Portfolio/skills.json');
+        if (res.ok) return await res.json();
     } catch (err) {
-        console.error("Skills load error:", err);
-        return [];
+        console.error('Skills load error:', err);
     }
+    return [];
 }
 
 function showSkills(skills) {
@@ -92,49 +96,60 @@ function showSkills(skills) {
 // ================= PROJECTS =================
 
 async function getProjects() {
-    try {
-        const response = await fetch("https://falshruti.github.io/Portfolio/projects.json");
-        if (!response.ok) {
-            throw new Error("JSON not found");
-        }
-        return await response.json();
-    } catch (error) {
-        console.error("Error loading projects:", error);
-        return [];
+    // ✅ Use pre-loaded global first (works on file://, no CORS issues)
+    if (window.projectsData && window.projectsData.length) {
+        return window.projectsData;
     }
+    // Try local JSON
+    try {
+        const res = await fetch('./projects.json');
+        if (res.ok) return await res.json();
+    } catch (e) { /* file:// blocked */ }
+    // Final fallback — GitHub Pages
+    try {
+        const res = await fetch('https://falshruti.github.io/Portfolio/projects.json');
+        if (res.ok) return await res.json();
+    } catch (error) {
+        console.error('Error loading projects:', error);
+    }
+    return [];
 }
 
-// Render Projects — same card as project-script.js, first 6 only
+// Render first 6 projects on the home page
 function showProjects(projects) {
-    const container = document.querySelector(".work .box-container");
+    const container = document.querySelector('.work .box-container');
     if (!container) return;
     if (!projects || projects.length === 0) {
         container.innerHTML = "<p style='color:white'>No projects found</p>";
         return;
     }
 
-    // only first 6 on homepage
-    let html = "";
+    let html = '';
     projects.slice(0, 6).forEach(project => {
-        let techHTML = "";
-        if (project.tech && project.tech.length) {
-            techHTML = project.tech.map(t => `<span class="tag">${t}</span>`).join("");
-        }
+
+        const techHTML = (project.tech && project.tech.length)
+            ? project.tech.map(t => `<span class="tag">${t}</span>`).join('')
+            : '';
+
+        const statusClass = project.status === 'active' ? 'active' : 'live';
+        const statusTitle = project.status === 'active' ? 'Active / In Progress' : 'Live';
+
+        const viewBtn = (project.links && project.links.view && project.links.view !== '#')
+            ? `<a href="${project.links.view}" target="_blank" rel="noopener" class="card-view-btn">
+                   View Project <i class="fas fa-external-link-alt"></i>
+               </a>`
+            : '';
+
         html += `
         <div class="grid-item ${project.category || ''}">
             <div class="project-card">
                 <div class="card-header">
-                    <h3>${project.name}</h3>
-                    <span class="status active"></span>
+                    <h3 class="project-title">${project.name}</h3>
+                    <span class="status ${statusClass}" title="${statusTitle}"></span>
                 </div>
                 <p class="description">${project.desc}</p>
-                <div class="tech-stack">
-                    ${techHTML}
-                </div>
-                ${project.links?.view && project.links.view !== "#" ? `
-                    <a href="${project.links.view}" target="_blank" class="btn">
-                        View →
-                    </a>` : ""}
+                <div class="tech-stack">${techHTML}</div>
+                <div class="card-actions">${viewBtn}</div>
             </div>
         </div>`;
     });
